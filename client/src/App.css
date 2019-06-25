@@ -1,9 +1,14 @@
 .App {
   text-align: center;
 }
+html{
+  height:100%;
+}
 
 body{
-  background-color: black;
+
+  /* background: linear-gradient(308deg, rgba(255,255,255,1) 37%, rgba(0,153,144,1) 37%); */
+  background: linear-gradient(45deg, orangeRed 50%, black 50%);
 }
 
 @keyframes slideInFromLeft {
@@ -44,6 +49,25 @@ body{
   background: linear-gradient(transparent -30%,#181818);
 }
 
+/* HEADER DESCRIPTION(GENRES) */
+.header-description{
+  font-size: 11px;
+    line-height: 16px;
+    letter-spacing: .015em;
+    font-weight: var(--glue-font-weight-normal);
+    color: #b3b3b3;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    color: #fff;
+    opacity: .6;
+
+    display: block;
+    text-align: center;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+
+}
+
 .large{
 
   font-size:5rem;
@@ -56,8 +80,9 @@ body{
 }
 /* button styling */
 .btn{
-  position:relative;
-  font-size: 11px;
+
+position:relative;
+font-size: 11px;
 line-height: 16px;
 letter-spacing: .015em;
 font-weight: var(--glue-font-weight-normal);
@@ -89,20 +114,29 @@ vertical-align: middle;
 -ms-user-select: none;
 user-select: none;
 transition:color 0.25s ease;
+cursor: pointer;
 }
 
 
 
-
-button:after {
+/* BUTTON HOVER EFFECTS */
+.btn:after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(45deg, orangeRed 50%, transparent 50%);
   z-index: -1;
+
+}
+
+.btn-sc:after{
+  background: linear-gradient(45deg, orangeRed 50%, transparent 50%);
+}
+
+.btn-sp:after{
+  background: linear-gradient(45deg, #1db954 50%, transparent 50%);
 }
 
 .btn,
@@ -119,17 +153,10 @@ button:after {
 
   color: orangeRed; /*For IE*/
 }
+/* BUTTON HOVER EFFECTS */
+
 
 .button-container{
   display:flex;
   align-items: center;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
