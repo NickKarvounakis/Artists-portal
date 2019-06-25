@@ -1,0 +1,135 @@
+.App {
+  text-align: center;
+}
+
+body{
+  background-color: black;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.content{
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.header-image{
+  display:flex;
+  flex-direction: column;
+  position: relative;
+  min-height:40vh;
+
+
+  width:90%;
+  margin:auto;
+  align-items:center;
+  background-size:cover;
+  background-position: 50%;
+  /* background: linear-gradient(transparent -30%,#181818); */
+}
+
+.header-image::before{
+  content: "";
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  background: linear-gradient(transparent -30%,#181818);
+}
+
+.large{
+
+  font-size:5rem;
+
+  line-height:400px;
+  letter-spacing: -.005em;
+  color:#fff;
+  position:relative;
+  text-transform:none;
+}
+/* button styling */
+.btn{
+  position:relative;
+  font-size: 11px;
+line-height: 16px;
+letter-spacing: .015em;
+font-weight: var(--glue-font-weight-normal);
+color: #b3b3b3;
+text-transform: uppercase;
+letter-spacing: .16em;
+-webkit-transition: none 33ms cubic-bezier(.3,0,.7,1);
+transition: none 33ms cubic-bezier(.3,0,.7,1);
+-webkit-transition-property: all;
+transition-property: all;
+color: #fff;
+margin-top: 16px;
+display: inline-block;
+margin-bottom: 0;
+text-align: center;
+-ms-touch-action: manipulation;
+touch-action: manipulation;
+background-image: none;
+border: 0;
+border-radius: 40px;
+padding: 13px;
+min-width: 130px;
+white-space: normal;
+will-change: transform;
+line-height: 1.6;
+vertical-align: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+transition:color 0.25s ease;
+}
+
+
+
+
+button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(45deg, orangeRed 50%, transparent 50%);
+  z-index: -1;
+}
+
+.btn,
+.btn:after {
+  background-size: 300%;
+  background-position: 100%;
+  transition: 1s, font-size 0.2s;
+}
+
+.btn:hover,
+.btn:hover:after {
+  background-position: 0;
+  font-size: 1.1em;
+
+  color: orangeRed; /*For IE*/
+}
+
+.button-container{
+  display:flex;
+  align-items: center;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
