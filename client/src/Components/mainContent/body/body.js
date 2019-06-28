@@ -4,6 +4,10 @@ import {connect } from 'react-redux';
 
 //SUB-COMPONENTS
 import Map from './map-section/artist-map'
+import Details from './artist-bio'
+
+// material ui
+import Grid from '@material-ui/core/Grid';
 
 
 class ContentBody extends Component {
@@ -22,7 +26,14 @@ class ContentBody extends Component {
   render(){
   return (
     <div className="App">
-      <Map spotifyWebApi={this.props.spotifyWebApi}/>
+      <Grid container direction="row" >
+      <Grid item xs={9}>
+      <Details />
+      </Grid>
+      <Grid item xs={3}>
+      <Map />
+      </Grid>
+      </Grid>
     </div>
 )}
 }
