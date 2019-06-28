@@ -23,7 +23,7 @@ class NowPlaying extends Component {
     this.props.spotifyWebApi.getMyCurrentPlaybackState()
       .then((response) => {
         console.log('---------->',response)
-        if(response.item !== null)
+        if(response.item !== null || response.item)
         {
             console.log(response.item.album.images[0])
             this.setState({

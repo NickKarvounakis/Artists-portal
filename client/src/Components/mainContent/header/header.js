@@ -4,9 +4,9 @@ import {connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 
-import { updateArtistId } from '../../store/actions/artist_id'
+import { updateArtistId } from '../../../store/actions/artist_id'
 
-class ArtistInfo extends Component {
+class ContentHeader extends Component {
   constructor(){
     super()
 
@@ -97,4 +97,4 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(ArtistInfo);
+export default connect(mapStateToProps,mapDispatchToProps)(ContentHeader);

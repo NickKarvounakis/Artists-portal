@@ -4,11 +4,12 @@ import Spotify from 'spotify-web-api-js'
 import { Provider } from 'react-redux'
 import { connect } from 'react-redux'
 
-import NowPlaying from './mainContent/NowPlaying'
+import NowPlaying from './mainContent/footer/NowPlaying'
 import Search from './search'
-import ArtistInfo from './mainContent/artist-info'
+import ContentHeader from './mainContent/header/header'
+import ContentBody from './mainContent/body/body'
 
-class Body extends Component {
+class Content extends Component {
 
 
 
@@ -23,8 +24,8 @@ class Body extends Component {
     else if(this.props.token){
       content =
       <div className="content">
-        <ArtistInfo spotifyWebApi={this.props.spotifyWebApi} />
-        <NowPlaying spotifyWebApi={this.props.spotifyWebApi} />
+        <ContentHeader spotifyWebApi={this.props.spotifyWebApi} />
+        <ContentBody spotifyWebApi={this.props.spotifyWebApi} />
       </div>
   }
     else {
@@ -44,4 +45,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Body);
+export default connect(mapStateToProps)(Content);

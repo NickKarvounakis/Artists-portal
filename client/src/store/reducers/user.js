@@ -2,7 +2,8 @@ const initialState = {
   token:'',
   user_id:'',
   search_result:'',
-  artist_id:''
+  artist_id:'',
+  country:''
 }
 
 const userReducer = (state = initialState, action) => {
@@ -15,6 +16,8 @@ const userReducer = (state = initialState, action) => {
           return Object.assign({}, state, {search_result: action.value})
         case 'UPDATE_ARTIST_ID':
           return Object.assign({}, state, {artist_id: action.value})
+        case 'SET_COUNTRY':
+          return Object.assign({}, state, {country: action.value})
       default:
         return state
     }

@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 
 import Login from './Components/Login'
 
-import Body from './Components/Body'
+import Content from './Components/index'
 
 
 const spotifyWebApi = new Spotify()
@@ -24,7 +24,7 @@ class App extends Component {
 
           <Provider store={ store }>
           <Login spotifyWebApi={spotifyWebApi} />
-          <Body spotifyWebApi={spotifyWebApi} />
+          <Content spotifyWebApi={spotifyWebApi} />
           </Provider>
 
     </div>
