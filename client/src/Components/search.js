@@ -6,13 +6,15 @@ import { connect } from 'react-redux'
   import { updateSearch }  from '../store/actions/search_token'
 
 
-//MATERIAL UI Imports
+  //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
+  import GetCookie from './cookie_checker'
 
 
  class Searchbar extends Component{
 
-   constructor(){
+   constructor(props){
      super()
+     props.spotifyWebApi.setAccessToken(GetCookie('access_token'))
      this.state = {
        input:''
      }

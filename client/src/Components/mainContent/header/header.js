@@ -6,6 +6,10 @@ import Box from '@material-ui/core/Box';
 
 import { updateArtistId } from '../../../store/actions/artist_id'
 
+//FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
+import GetCookie from '../../cookie_checker'
+
+
 class ContentHeader extends Component {
   constructor(){
     super()
@@ -27,6 +31,7 @@ class ContentHeader extends Component {
 
   getNowPlaying(){
     console.log(this.props.spotifyWebApi)
+
     this.props.spotifyWebApi.searchArtists(this.props.search_result)
       .then((response) => {
         console.log('---------->',response.artists.items[0])

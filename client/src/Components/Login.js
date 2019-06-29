@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect } from 'react-redux';
 import Spotify from 'spotify-web-api-js'
 import { Route, Redirect } from 'react-router'
-
+import GetCookie from './cookie_checker'
 //REACT ROUTER
 import {Link} from 'react-router-dom'
 
@@ -18,9 +18,10 @@ class Login extends Component {
       loggedIn:params.access_token ? true : false,
     }
     if(params.access_token){
-      props.spotifyWebApi.setAccessToken(params.access_token)
+
       console.log('PARAMS------->',params)
-      const allCookies = document.cookie
+      const allCookies = GetCookie('access_token')
+
       console.log(allCookies)
       if (document.cookie.split(';').filter((item) => item.trim().startsWith('access_token=')).length) {
     console.log('The cookie "reader" exists (ES6)')
@@ -32,6 +33,7 @@ else {
       console.log('PARAMS------->',params)
     }
   }
+
 
 
 

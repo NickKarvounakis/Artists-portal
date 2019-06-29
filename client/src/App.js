@@ -19,7 +19,7 @@ class App extends Component {
 
   render(){
     console.log('refresh--->',document.cookie)
-    spotifyWebApi.setAccessToken(document.cookie)
+    
   return (
     <div className="App">
 
