@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
 import Spotify from 'spotify-web-api-js'
+import { Route, Redirect } from 'react-router'
 
 //REACT ROUTER
 import {Link} from 'react-router-dom'
@@ -19,9 +20,20 @@ class Login extends Component {
     if(params.access_token){
       props.spotifyWebApi.setAccessToken(params.access_token)
       console.log('PARAMS------->',params)
-      props.updateUrl(params)
+      const allCookies = document.cookie
+      console.log(allCookies)
+      if (document.cookie.split(';').filter((item) => item.trim().startsWith('access_token=')).length) {
+    console.log('The cookie "reader" exists (ES6)')
+}
+else {
+  console.log('cookie doesnt exist')
+}
+      props.updateUrl(allCookies)
+      console.log('PARAMS------->',params)
     }
   }
+
+
 
 
   getHashParams() {
@@ -35,12 +47,25 @@ class Login extends Component {
  }
 
   render(){
+  console.log(this.props)
   return (
-      <a href='http://localhost:8888'>
-        <button>Log-in with spottify</button>
-      </a>
+    <Route  exact path="/" render={() => (
+      this.state.loggedIn || this.props.token !== ""  ? (
+        <Redirect to="/dashboard"/>
+                            ) : (
+        <a href='http://localhost:8888'>
+                <button>Log-in with spottify</button>
+              </a>
+      )
+    )}/>
 )}
 }
+
+const mapStateToProps = (state) => {
+  return {
+    token: state.userReducer.token
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
 
@@ -49,4 +74,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -39,6 +39,7 @@ class ContentHeader extends Component {
         this.props.updateArtistId(response.artists.items[0].id)
         console.log(this.state.genres)
       })
+      .catch(err => console.error(err.message))
   }
 
 

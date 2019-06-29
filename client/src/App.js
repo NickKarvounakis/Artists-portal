@@ -4,9 +4,9 @@ import './App.css';
 import Spotify from 'spotify-web-api-js'
 import store from './store'
 import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Login from './Components/Login'
-
 import Content from './Components/index'
 
 
@@ -18,13 +18,15 @@ class App extends Component {
 
 
   render(){
+    console.log('refresh--->',document.cookie)
+    spotifyWebApi.setAccessToken(document.cookie)
   return (
     <div className="App">
 
 
           <Provider store={ store }>
-          <Login spotifyWebApi={spotifyWebApi} />
-          <Content spotifyWebApi={spotifyWebApi} />
+          <Route path="/"   render={()=><Login spotifyWebApi={spotifyWebApi}/>}/>
+          <Route path="/dashboard"   render={()=><Content spotifyWebApi={spotifyWebApi}/>}/>
           </Provider>
 
     </div>

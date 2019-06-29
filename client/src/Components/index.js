@@ -16,8 +16,8 @@ class Content extends Component {
 
   render(){
     const path = `/#access_token=${this.props.token.access_token}&refresh_token=${this.props.token.refresh_token}+`
-    console.log(path)
     let content
+    const token_cookie = document.cookie
     if(!this.props.search_result){
       content = <Search />
     }
@@ -33,6 +33,9 @@ class Content extends Component {
     }
   return (
       <div className="App">
+        <a href='http://localhost:8888'>
+                <button>Welcome</button>
+        </a>
         {content}
       </div>
 )}

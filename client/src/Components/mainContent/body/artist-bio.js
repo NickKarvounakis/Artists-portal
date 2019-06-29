@@ -18,29 +18,44 @@ class Details extends Component {
 
   componentDidMount(){
     this.getAlbums()
+    this.getImages()
   }
 
 
 
 
   getAlbums(){
-      const url = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${'yung lean'}&api_key=${process.env.REACT_APP_LAST_FM_KEY}&format=json`
+      const url = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${this.props.search_result}&api_key=${process.env.REACT_APP_LAST_FM_KEY}&format=json`
       fetch(url)
       .then(response => response.json())
       .then((data) => {
-        console.log('BIO',data.artist.bio)
         this.setState({
             short:data.artist.bio.summary,
             long:data.artist.bio.content,
             current:data.artist.bio.summary
         })
+      })
+      .catch((err) => console.error(err))
+  }
 
+  getImages(){
+
+
+
+      const url = `http://cors-anywhere.herokuapp.com/https://api.gettyimages.com/v3/search/images?phrase=kitties`
+      fetch(url,{
+        method: 'GET',
+        headers: new Headers({'Api-key':'j878g39yx378pa77djthzzpn'}),
+        mode:'no-cors'
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data)
       })
       .catch((err) => console.error(err))
   }
 
   changeBio(){
-    console.log('AFTER:',this.state.current,'CURRENT: ',this.state.summary)
     if(this.state.current === this.state.short)
     {
       this.setState({
@@ -57,7 +72,7 @@ class Details extends Component {
 
 
   render(){
-    console.log(this.state.short)
+    console.log(document.cookie)
   return (
     <div className="bio-container">
     <Typography variant="h2" style={{color:'white',textAlign:'center'}}>BIO</Typography>
@@ -72,7 +87,7 @@ class Details extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    artist_id:state.userReducer.artist_id
+    search_result:state.userReducer.search_result
   }
 }
 
