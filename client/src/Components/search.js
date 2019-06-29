@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 //ACTIONS IMPORT
   import { updateSearch }  from '../store/actions/search_token'
-
+  import { withRouter  } from 'react-router-dom'
+import { Redirect } from 'react-router';
 
   //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
   import GetCookie from './cookie_checker'
@@ -23,10 +24,15 @@ import { connect } from 'react-redux'
    }
 
    render(){
+     const redirectToReferrer = this.state.redirectToReferrer;
+      if (redirectToReferrer === true) {
+              return <Redirect to={`/dashboard/${this.state.input}`} />
+
+        }
     return(
       <div className="search-background search__container" id="section1">
           <div>
-            <form onSubmit={(event) => this.inputSubmit(event)}>
+              <form onSubmit={(event) => this.inputSubmit(event)}>
               <input className="searchBar search__input" placeholder="Search for a video!" value={this.state.input}  onChange={(e) => this.inputChange(e)} />
             </form>
           </div>
@@ -40,11 +46,13 @@ import { connect } from 'react-redux'
       }
 
     inputSubmit(event){
-      event.preventDefault()
       this.props.updateSearch(this.state.input)
+      event.preventDefault()
       this.setState({
-        input:''
+        redirectToReferrer:true
       })
+
+
     }
 }
 

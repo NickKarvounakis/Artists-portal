@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Login from './Components/Login'
 import Content from './Components/index'
-
+import Search from './Components/search'
 
 const spotifyWebApi = new Spotify()
 
@@ -19,14 +19,15 @@ class App extends Component {
 
   render(){
     console.log('refresh--->',document.cookie)
-    
+
   return (
     <div className="App">
 
 
           <Provider store={ store }>
           <Route path="/"   render={()=><Login spotifyWebApi={spotifyWebApi}/>}/>
-          <Route path="/dashboard"   render={()=><Content spotifyWebApi={spotifyWebApi}/>}/>
+          <Route path="/dashboard"   render={()=><Search spotifyWebApi={spotifyWebApi}/>}/>
+          <Route path="/dashboard/:id"  render={(props)=><Content spotifyWebApi={spotifyWebApi} parameters={props} />}/>
           </Provider>
 
     </div>

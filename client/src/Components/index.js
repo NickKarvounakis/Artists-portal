@@ -4,11 +4,14 @@ import Spotify from 'spotify-web-api-js'
 import { Provider } from 'react-redux'
 import { connect } from 'react-redux'
 
+
+  import { updateSearch }  from '../store/actions/search_token'
+
 import NowPlaying from './mainContent/footer/NowPlaying'
 import Search from './search'
 import ContentHeader from './mainContent/header/header'
 import ContentBody from './mainContent/body/body'
-
+import queryString from 'query-string';
 //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
 import GetCookie from './cookie_checker'
 
@@ -17,14 +20,17 @@ class Content extends Component {
 
 
 
+
   render(){
+    let query = this.props.parameters.match.params.id
+    console.log('ASUNA',query)
+    if(!this.props.search_result){
+      console.log(this.props.updateSearch(query))
+    }
     const path = `/#access_token=${this.props.token.access_token}&refresh_token=${this.props.token.refresh_token}+`
     let content
     const token_cookie = GetCookie('access_token')
-    if(!this.props.search_result){
-      content = <Search spotifyWebApi={this.props.spotifyWebApi}/>
-    }
-    else if(token_cookie){
+    if(token_cookie){
       content =
       <div className="content">
         <ContentHeader spotifyWebApi={this.props.spotifyWebApi} />
@@ -51,4 +57,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Content);
+const mapDispatchToProps = (dispatch) => ({
+   updateSearch: (value) => dispatch(updateSearch(value))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Content);
