@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
-import { set_country } from '../../../../store/actions/set_country'
+import { set_country } from '../../../../../store/actions/set_country'
 
 import MyMapComponent from './google-map'
 import Typography from '@material-ui/core/Typography';
@@ -47,7 +47,7 @@ class Map extends Component {
     <div className="test">
       {this.state.country !== '' ?
         <div style={{marginTop:'4em',marginRight:'8em'}}>
-        <Typography variant='h2' style={{color:'white'}}>LOCATION<span><img src="../location1.png" height="30" width="30"></img></span></Typography>
+        <Typography variant='h2' style={{color:'white'}}>LOCATION<span><img src="../../location1.png" height="30" width="30"></img></span></Typography>
         <MyMapComponent
           isMarkerShown
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}

@@ -20,21 +20,21 @@ class Albums extends Component {
 
 
   getAlbums(){
-    console.log(this.props.spotifyWebApi)
-    this.props.spotifyWebApi.getArtistAlbums(this.props.artist_id)
-      .then((response) => {
-        console.log('ALBUMS---------->',response)
-        // if(response.item !== null || response.item)
-        // {
-        //     console.log(response.item.album.images[0])
-        //     this.setState({
-        //       nowPlaying:{
-        //         name: response.item.name,
-        //         image: response.item.album.images[0].url
-        //       }
-        //     })
-        // }
-      })
+    // console.log(this.props.spotifyWebApi)
+    // this.props.spotifyWebApi.getArtistAlbums(this.props.artist_id)
+    //   .then((response) => {
+    //     console.log('ALBUMS---------->',response)
+    //     // if(response.item !== null || response.item)
+    //     // {
+    //     //     console.log(response.item.album.images[0])
+    //     //     this.setState({
+    //     //       nowPlaying:{
+    //     //         name: response.item.name,
+    //     //         image: response.item.album.images[0].url
+    //     //       }
+    //     //     })
+    //     // }
+    //   })
   }
 
 
@@ -44,7 +44,7 @@ class Albums extends Component {
     }
   return (
     <div className="test">
-
+      <h1>Overview</h1>
   </div>
 )}
 }

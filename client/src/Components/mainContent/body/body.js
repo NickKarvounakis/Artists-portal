@@ -3,12 +3,15 @@ import Spotify from 'spotify-web-api-js'
 import {connect } from 'react-redux';
 
 //SUB-COMPONENTS
-import Map from './map-section/artist-map'
-import Details from './artist-bio'
-
+import Demo from './experimental/Demo'
+import Overview from './Overview/Overview'
+import About from './About/About'
+import Error from '../../Error'
+import Sections from './sections'
 // material ui
 import Grid from '@material-ui/core/Grid';
 
+import { Route,Switch } from "react-router-dom";
 
 class ContentBody extends Component {
   constructor(){
@@ -18,32 +21,22 @@ class ContentBody extends Component {
 
 
 
-
-
-
-
-
   render(){
   return (
     <div className="App">
-      <Grid container direction="row" >
-      <Grid item xs={9}>
-      <Details />
-      </Grid>
-      <Grid item xs={3}>
-      <Map />
-      </Grid>
-      </Grid>
+      <Route path={`/dashboard/${this.props.search_result}/:section`}  render={(props)=><Demo  parameters={props} search={this.props.search_result}/>} />
+      <Route  path={`/dashboard/${this.props.search_result}/:section`}    render={(props)=><Sections  parameters={props} search={this.props.search_result}/>} />
     </div>
 )}
 }
 
 
+
+
 const mapStateToProps = (state) => {
   console.log('state:',state)
   return{
-    token:state.userReducer.token,
-    artist_id:state.userReducer.artist_id
+    search_result:state.userReducer.search_result
   }
 }
 

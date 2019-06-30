@@ -26,7 +26,7 @@ import { Redirect } from 'react-router';
    render(){
      const redirectToReferrer = this.state.redirectToReferrer;
       if (redirectToReferrer === true) {
-              return <Redirect to={`/dashboard/${this.state.input}`} />
+              return <Redirect to={`/dashboard/${this.state.input}/Overview`}  />
 
         }
     return(
