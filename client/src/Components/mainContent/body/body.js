@@ -3,7 +3,7 @@ import Spotify from 'spotify-web-api-js'
 import {connect } from 'react-redux';
 
 //SUB-COMPONENTS
-import Demo from './experimental/Demo'
+import Demo from './section-bar/Demo'
 import Overview from './Overview/Overview'
 import About from './About/About'
 import Error from '../../Error'

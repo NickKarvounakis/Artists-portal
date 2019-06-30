@@ -75,7 +75,10 @@ TwitterTabs.getTheme = muiBaseTheme => ({
       color:'Beige'
     },
     indicator: {
-      backgroundColor: "beige"
+      // backgroundColor: "rgb(255,92,83)"
+      backgroundImage: 'linear-gradient(45deg, transparent,rgb(29,199,252) ,rgb(104,110,252) ,rgb(233,80,155) ,rgb(218,77,184),rgb(104,110,252),transparent )',
+      backgroundColor:'inherit'
+      // backgroundImage: 'linear-gradient(45deg, orangeRed,rgb(104,110,252),rgb(29,199,252),rgb(29,199,252),rgb(29,199,252),rgb(104,110,252),orangeRed )'
     }
   },
   MuiTab: {

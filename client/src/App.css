@@ -148,6 +148,10 @@ cursor: pointer;
   background: linear-gradient(45deg, #1db954 50%, transparent 50%);
 }
 
+.btn-it:after{
+  background: linear-gradient(45deg, rgb(29,199,252) 1%,rgb(104,110,252) 40%,rgb(233,80,155) 50%,rgb(218,77,184) 10%,crimson 20%, transparent 60%);
+}
+
 .btn,
 .btn:after {
   background-size: 300%;

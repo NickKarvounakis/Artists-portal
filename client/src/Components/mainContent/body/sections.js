@@ -6,6 +6,7 @@ import queryString from 'query-string'
 import React, {Component} from 'react'
 import About from './About/About'
 import Overview from './Overview/Overview'
+import Related from './Related/Related'
 import { Route,Switch } from "react-router-dom";
 import Error from '../../Error'
 
@@ -26,8 +27,11 @@ class Sections extends Component {
       console.log(path)
       if(path === 'About')
         SubComponent = <About />
-      else if(path === 'Overview' || path === 'Related') {
+      else if(path === 'Overview') {
         SubComponent = <Overview />
+      }
+      else if(path === 'Related'){
+        SubComponent = <Related />
       }
       else {
         SubComponent = <Error />
