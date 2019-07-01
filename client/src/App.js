@@ -11,7 +11,12 @@ import Content from './Components/index'
 import Search from './Components/search'
 import Error from './Components/Error'
 
+//FUNCTION THAT PICKS ONE RANDOM COLOR FROM THE COLORS.JSON FILE
+import Random_color from './Components/Methods/random_color'
+
 const spotifyWebApi = new Spotify()
+
+
 
 class App extends Component {
 
@@ -20,7 +25,7 @@ class App extends Component {
 
   render(){
     console.log('refresh--->',document.cookie)
-
+    document.documentElement.style.setProperty('--background-gradient',Random_color()); //changes the background color
   return (
     <div className="App">
 

@@ -28,7 +28,7 @@ class Sections extends Component {
       if(path === 'About')
         SubComponent = <About />
       else if(path === 'Overview') {
-        SubComponent = <Overview />
+        SubComponent = <Overview spotifyWebApi={this.props.spotifyWebApi}/>
       }
       else if(path === 'Related'){
         SubComponent = <Related />

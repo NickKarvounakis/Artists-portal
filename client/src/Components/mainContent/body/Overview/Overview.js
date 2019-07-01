@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import Albums from './artist-albums'
+import Albums from './Top-tracks'
 
 class Overview extends Component {
 
@@ -11,7 +11,7 @@ class Overview extends Component {
   render(){
   return (
     <div className="test">
-      <Albums />
+      <Albums spotifyWebApi={this.props.spotifyWebApi}/>
     </div>
 )}
 }

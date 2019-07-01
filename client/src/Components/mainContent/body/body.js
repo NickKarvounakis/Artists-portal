@@ -24,8 +24,8 @@ class ContentBody extends Component {
   render(){
   return (
     <div className="App">
-      <Route path={`/dashboard/${this.props.search_result}/:section`}  render={(props)=><Demo  parameters={props} search={this.props.search_result}/>} />
-      <Route  path={`/dashboard/${this.props.search_result}/:section`}    render={(props)=><Sections  parameters={props} search={this.props.search_result}/>} />
+      <Route path={`/dashboard/${this.props.search_result}/:section`}  render={(props)=><Demo  parameters={props} search={this.props.search_result} />} />
+      <Route  path={`/dashboard/${this.props.search_result}/:section`}    render={(props)=><Sections  parameters={props} search={this.props.search_result} spotifyWebApi={this.props.spotifyWebApi} />} />
     </div>
 )}
 }

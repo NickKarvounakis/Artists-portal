@@ -12,8 +12,11 @@ import Search from './search'
 import ContentHeader from './mainContent/header/header'
 import ContentBody from './mainContent/body/body'
 import queryString from 'query-string';
+
+//METHODS
 //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
 import GetCookie from './cookie_checker'
+
 
 class Content extends Component {
 
@@ -22,10 +25,13 @@ class Content extends Component {
 
 
   render(){
+
+
     let query = this.props.parameters.match.params.id
     console.log('ASUNA',query)
     if(!this.props.search_result){
       console.log(this.props.updateSearch(query))
+      this.props.spotifyWebApi.setAccessToken(GetCookie('access_token'))
     }
     const path = `/#access_token=${this.props.token.access_token}&refresh_token=${this.props.token.refresh_token}+`
     let content

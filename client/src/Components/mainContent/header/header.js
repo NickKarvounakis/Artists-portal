@@ -34,6 +34,7 @@ class ContentHeader extends Component {
 
     this.props.spotifyWebApi.searchArtists(this.props.search_result)
       .then((response) => {
+        console.log(response)
         console.log('---------->',response.artists.items[0])
         this.setState({
           image:response.artists.items[0].images[0].url,
@@ -62,7 +63,7 @@ class ContentHeader extends Component {
   return (
 
       <header  alt={this.state.name} className="header-image" style={{backgroundImage: `url(${this.state.image})`}}>
-        <h1 className="large" dir="auto">{this.state.name}</h1>
+        <h1 className="large" dir="auto" >{this.state.name}</h1>
         <Grid container direction="row" alignItems="center" justify="center">
           {listItems}
         </Grid>
