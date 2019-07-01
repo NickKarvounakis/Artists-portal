@@ -12,33 +12,37 @@ class ToptracksRow extends React.Component {
     constructor(){
       super()
       this.state = {
-        icon:'play'
+        icon:false
       }
+      this.audio = null
     }
 
     play_audio = (url) => {
-      if(audio)
+      console.log(this.audio)
+      if(this.audio)
         {
-        audio.pause()
+        this.audio.pause()
         this.setState({
-          icon:'play'
+          icon:false
         })
+        this.audio = null
         }
       else {
         this.setState({
-          icon:'pause'
+          icon:true
         })
+        this.audio = new Audio(url)
+        setTimeout(this.audio.play(), 2000);
       }
-      audio = new Audio(url)
-      setTimeout(audio.play(), 2000);
+
 
     }
 
     componentWillUnmount = () => {
       console.log('chao')
-      if(audio)
+      if(this.audio)
         {
-        audio.pause()
+        this.audio.pause()
       }}
 
 
@@ -60,7 +64,7 @@ class ToptracksRow extends React.Component {
                     </Grid>
                     <Grid item>
                         {
-                          this.state.icon === 'play' ?
+                          !this.state.icon  ?
                           <img src={`../../${'play'}.svg`} alt="play button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.preview_url)}/>
                           :
                           <img src={`../../${'pause'}.svg`} alt="pause button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.preview_url)}/>
