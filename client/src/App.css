@@ -218,3 +218,23 @@ cursor: pointer;
 {
 	background-color: rgba(0,0,0,0.9);
 }
+
+
+
+.progress-bar{
+  position:relative;
+  height:2px;
+  width:250px;
+
+  background-color:black;
+
+
+}
+
+.filler{
+  background: black;
+
+  height:9px;
+
+  transition: width 1s ease-in;
+}

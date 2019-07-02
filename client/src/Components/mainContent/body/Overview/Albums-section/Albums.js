@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import Spotify from 'spotify-web-api-js'
 import {connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
-import ToptracksRow from './Top-tracksRow'
 import Grid from '@material-ui/core/Grid';
+
+import AlbumsRow from './AlbumsRow'
+
 class Albums extends Component {
 
-  _isMounted = false;
+
 
   constructor(){
     super()
@@ -17,8 +19,7 @@ class Albums extends Component {
   }
 
   componentDidMount(){
-    this._isMounted = true
-    this.getTopSongs()
+    this.getAlbums()
   }
 
 
@@ -41,47 +42,46 @@ class Albums extends Component {
   //     })
   // }
 
-  getTopSongs(){
+  getAlbums(){
     console.log(this.props.spotifyWebApi)
-    this.props.spotifyWebApi.getArtistTopTracks(this.props.artist_id,'US')
+    this.props.spotifyWebApi.getArtistAlbums(this.props.artist_id,{	"include_groups": "album","limit": 50})
       .then((response) => {
-        let toptracksRows = []
-        response.tracks.forEach((song) => {
+        console.log(response.items)
+
+        let AlbumRows = []
+        response.items.forEach((song) => {
           console.log(song)
-          const image = song.album.images[1].url
+          const type = song.album_group
+          const image = song.images[1].url
           const name = song.name
-          const preview_url = song.preview_url
-          const album_name = song.album.name
-          console.log(name,image,preview_url)
-          const toptracksRow = <ToptracksRow    image={image} name={name} album_name={album_name} preview_url={preview_url}   key={preview_url} />
-          toptracksRows.push(toptracksRow)
+          const release_date = song.release_date
+          if(type === 'album')
+          {
+            const AlbumRow = <AlbumsRow    name={name} image={image} release_date={release_date}/>
+            AlbumRows.push(AlbumRow)
+          }
         })
-        console.log(toptracksRows)
-        if(this._isMounted){
           this.setState({
-            rows:toptracksRows
+            rows:AlbumRows
           })
-        }
       })
 
   }
 
-  componentWillUnmount(){
-    this._isMounted = false
-  }
 
 
   render(){
 
   return (
-    <div className="test" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}}>
-      <Typography variant="h1" style={{marginBottom:'0.25em'}}>
-        Popular
-      </Typography>
-      <Grid container direction="column" justify="flex-start" alignItems="flex-start">
-      {this.state.rows}
-      </Grid>
-  </div>
+      <React.Fragment>
+        <Grid container direction="row" alignItems="flex-end" justify="center">
+        <Typography variant="h2" style={{color:'white',marginLeft:'0.5em'}}>Albums</Typography>
+        </Grid>
+        <Grid container item xs={12} direction="row" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}} >
+        {this.state.rows}
+        </Grid>
+      </React.Fragment >
+
 )}
 }
 
