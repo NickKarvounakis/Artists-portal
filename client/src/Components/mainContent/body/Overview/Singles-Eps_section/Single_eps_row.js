@@ -2,7 +2,7 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Typography';
-
+import Button from '@material-ui/core/Button';
 
 
 class SingleEpsRow extends React.Component {
@@ -23,7 +23,22 @@ class SingleEpsRow extends React.Component {
                   <div>
                       <Grid container item xs={12} direction="column" justify="flex-start">
                       <Grid item xs={12}>
-                      <img src={this.props.image} alt={this.props.name} style={{margin:'auto'}}/>
+                      <div className="tilt">
+                        <figure style={{margin:'auto'}} className="imghvr-blur">
+                          <img src={this.props.image} alt={this.props.name}  className="pic"/>
+                          <figcaption>
+                            <h2 className="" style={{fontSize:'2rem',marginBottom:'auto'}}>LISTEN ON</h2>
+                            <div>
+                              <img src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em'}} />
+                              <img src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em'}}/>
+                              <img src="../../../itunes.svg" width="50" height="100" alt="itunes" />
+                            </div>
+                            <div >
+                              <Button variant="contained" color="secondary" className=""><span style={{color:'white'}}>Tracklist and Lyrics</span></Button>
+                            </div>
+                          </figcaption>
+                        </figure>
+                      </div>
                       </Grid>
                       <Grid item xs={12}>
                       <h4 style={{color:'white',margin:'auto',marginTop:'0.2em'}}>{this.props.name}</h4>
