@@ -34,7 +34,7 @@ class SingleEpsRow extends React.Component {
                               <img src="../../../itunes.svg" width="50" height="100" alt="itunes" />
                             </div>
                             <div >
-                              <Button variant="contained" color="secondary" className=""><span style={{color:'white'}}>Tracklist and Lyrics</span></Button>
+                              <Button variant="contained" color="secondary" className="" ><span style={{color:'white'}}>Tracklist and Lyrics</span></Button>
                             </div>
                           </figcaption>
                         </figure>

@@ -55,9 +55,10 @@ class Albums extends Component {
           const image = song.images[1].url
           const name = song.name
           const release_date = song.release_date
+          const spotify_url=song.external_urls.spotify
           if(type === 'album')
           {
-            const AlbumRow = <AlbumsRow    name={name} image={image} release_date={release_date}/>
+            const AlbumRow = <AlbumsRow    name={name} image={image} release_date={release_date} spotify_url={spotify_url}/>
             AlbumRows.push(AlbumRow)
           }
         })

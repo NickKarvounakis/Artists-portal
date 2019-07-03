@@ -33,9 +33,9 @@ class AlbumsRow extends React.Component {
                         <figure style={{margin:'auto'}} className="imghvr-blur">
                           <img src={this.props.image} alt={this.props.name}  className="pic"/>
                           <figcaption>
-                            <h2 className="" style={{fontSize:'2rem',marginBottom:'auto'}}>LISTEN ON</h2>
+                            <h2 className="" style={{fontSize:'2rem',marginBottom:'auto',color:'white'}}>LISTEN ON</h2>
                             <div>
-                              <img src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em'}} />
+                              <img src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
                               <img src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em'}}/>
                               <img src="../../../itunes.svg" width="50" height="100" alt="itunes" />
                             </div>

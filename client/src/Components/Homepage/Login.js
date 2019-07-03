@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {connect } from 'react-redux';
 import Spotify from 'spotify-web-api-js'
 import { Route, Redirect } from 'react-router'
-import GetCookie from './cookie_checker'
+import GetCookie from '../cookie_checker'
 //REACT ROUTER
 import {Link} from 'react-router-dom'
 
 //ACTION
-import { updateUrl } from '../store/actions/user_login'
+import { updateUrl } from '../../store/actions/user_login'
 
 
 class Login extends Component {
@@ -56,8 +56,14 @@ else {
         <Redirect to="/dashboard"/>
                             ) : (
         <a href='http://localhost:8888'>
-                <button>Log-in with spottify</button>
-              </a>
+          <button  className="btn-homepage btn-it" style={{color:'white',backgroundColor:'white'}} >
+            <div className="button-container" >
+                  <h1 style={{color:'black'}}>LOG-IN WITH</h1>
+                  <img src="./spotify4.svg" alt="spotify" width="200" height="100" />
+                  <h1 style={{color:'black'}}>TO GET STARTED</h1>
+            </div>
+          </button>
+        </a>
       )
     )}/>
 )}

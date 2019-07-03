@@ -6,7 +6,7 @@ import store from './store'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
 
-import Login from './Components/Login'
+import Homepage from './Components/Homepage/Homepage'
 import Content from './Components/index'
 import Search from './Components/search'
 import Error from './Components/Error'
@@ -25,13 +25,13 @@ class App extends Component {
 
   render(){
     console.log('refresh--->',document.cookie)
-    document.documentElement.style.setProperty('--background-gradient',Random_color()); //changes the background color
+    //changes the background color
   return (
     <div className="App">
 
 
           <Provider store={ store }>
-            <Route exact path="/"   render={()=><Login spotifyWebApi={spotifyWebApi}/>}/>
+            <Route exact path="/"   render={()=><Homepage spotifyWebApi={spotifyWebApi}/>}/>
             <Route exact path="/dashboard"   render={()=><Search spotifyWebApi={spotifyWebApi}/>}/>
             <Route path="/dashboard/:id"  render={(props)=><Content spotifyWebApi={spotifyWebApi} parameters={props} />}/>
 

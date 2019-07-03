@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
 import userReducer from './user';
+import colorReducer from './styling'
 
 export default combineReducers({
-  userReducer: userReducer
+  userReducer: userReducer,
+  colorReducer: colorReducer
 })
