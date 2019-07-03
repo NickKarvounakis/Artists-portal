@@ -13,7 +13,7 @@ render(){
   return(
     <div>
     <div style={{marginLeft:'4em'}}>
-    <Typography style={{color:'white',marginBottom:'0.5em'}} variant="h1">Artist Infogram</Typography>
+    <Typography style={{color:'white',marginBottom:'0.8em'}} variant="h1">Artist Infogram</Typography>
     <Grid container direction="row" >
       <Grid item xs={10}>
         <Grid container item  direction="column" alignItems="flex-start" justify="center" xs={12}>
@@ -43,7 +43,7 @@ render(){
         </div>
 
       <section bottom>
-        <div style={{width:'80%',marginTop:'8em'}}>
+        <div style={{width:'80%',marginTop:'13em'}}>
           <Typography variant="h2" style={{color:'white',textAlign:'left',marginLeft:'1em'}}>FEATURED ARTISTS OF THE DAY</Typography>
           <div class="progress progress-infinite" ><div class="progress-bar3" ></div></div>
           <div  className="homepage-image"  style={{backgroundImage:'url(https://i.scdn.co/image/c1945e5f76b092a913fac1888eba5d30013c352d)'}}>

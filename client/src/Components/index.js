@@ -25,8 +25,6 @@ class Content extends Component {
 
 
   render(){
-
-
     let query = this.props.parameters.match.params.id
     console.log('ASUNA',query)
     if(!this.props.search_result){

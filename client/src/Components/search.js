@@ -24,6 +24,8 @@ import { Redirect } from 'react-router';
    }
 
    render(){
+    console.log(this.props.color)
+    document.documentElement.style.setProperty('--background-gradient',this.props.color);
      const redirectToReferrer = this.state.redirectToReferrer;
       if (redirectToReferrer === true) {
               return <Redirect to={`/dashboard/${this.state.input}/Overview`}  />
@@ -60,7 +62,8 @@ import { Redirect } from 'react-router';
 
 const mapStateToProps = (state) => {
   return{
-    token:state.token
+    token:state.token,
+    color:state.colorReducer.color
   }
 }
 

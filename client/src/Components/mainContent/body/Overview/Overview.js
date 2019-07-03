@@ -8,13 +8,21 @@ import SignleEps from './Singles-Eps_section/Single_eps'
 import Grid from '@material-ui/core/Grid';
 
 class Overview extends Component {
+  constructor(){
+    super()
+    this.state = {didMount: false}
+  }
 
-
-
+  componentDidMount(){
+            setTimeout(() => {
+                 this.setState({didMount: true})
+             }, 0)
+         }
 
   render(){
+          const {didMount} = this.state
   return (
-    <div className="test">
+  <div className={`fade-in ${didMount && 'visible'}`}>
         <Grid container xs={12} direction="row" justify="flex-start" alignItems="flex-start">
         <Grid item xs={4}>
         <Popular spotifyWebApi={this.props.spotifyWebApi}/>

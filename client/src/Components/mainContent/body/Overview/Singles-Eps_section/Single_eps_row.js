@@ -25,7 +25,7 @@ class SingleEpsRow extends React.Component {
                       <Grid item xs={12}>
                       <div className="tilt">
                         <figure style={{margin:'auto'}} className="imghvr-blur">
-                          <img src={this.props.image} alt={this.props.name}  className="pic"/>
+                          <img src={this.props.image} alt={this.props.name}  />
                           <figcaption>
                             <h2 className="" style={{fontSize:'2rem',marginBottom:'auto'}}>LISTEN ON</h2>
                             <div>

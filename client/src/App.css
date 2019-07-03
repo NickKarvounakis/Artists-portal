@@ -1,7 +1,7 @@
 
 
 :root{
-  --background-gradient: orangeRed;
+  --background-gradient: crimson;
 }
 
 
@@ -38,6 +38,82 @@ background-image: linear-gradient( 35deg, var(--background-gradient) 50%, black 
     transform: translateX(0);
   }
 }
+
+/*
+.pic-container{
+    max-width: 210px;
+    max-height: 210px;
+    margin: 50px;
+}
+.pic{
+    background: #fff;
+    position: absolute;
+
+    -webkit-transition: all 0.2s ease;
+     transition: all 0.2s ease;
+
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+}
+.pix:nth:child(1){
+    z-index: 3;
+}
+.pic:nth-child(2){
+    z-index: 1;
+}
+.pic:nth-child(3){
+    z-index: 2;
+}
+.pic-container:hover .pic:nth-child(1)
+{
+    -webkit-transform: rotate(15deg);
+     transform: rotate(15deg);
+
+    -webkit-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+}
+
+.pic-container:hover .pic:nth-child(2){
+    -webkit-transform: rotate(7deg);
+     transform: rotate(7deg);
+
+    -webkit-transition: all 0.10s ease;
+     transition: all 0.10s ease;
+}
+
+.pic-container:hover .pic:nth-child(3){
+    -webkit-transform: rotate(-5deg);
+     transform: rotate(-5deg);
+}
+.pic-caption{
+    background: #82a3d4;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+    z-index: 10;
+    top:90px;
+    left: 200px;
+
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    -webkit-opacity: 0;
+    opacity: 0;
+
+}
+.pic-caption:hover{
+    background: #607fae;
+}
+.pic-container:hover .pic-caption{
+    left:230px;
+
+    -webkit-opacity: 1;
+    opacity: 1;
+} */
 
 
 /* HOMEPAGE PROGRESS BAR STYLING */
@@ -127,7 +203,7 @@ background-image: linear-gradient( 35deg, var(--background-gradient) 50%, black 
 .homepage-album-text{
 
   font-size:3rem;
-  
+
   /* line-height:400px; */
   letter-spacing: -.005em;
   color:#fff;
@@ -383,6 +459,13 @@ cursor: pointer;
 }
 /* --------------------------------------------- */
 
+.fade-in {
+    opacity: 0;
+}
+.fade-in.visible {
+    transition: opacity 0.6s ease-in;
+    opacity: 1;
+}
 
 .tilt {
   -webkit-transition: all 0.5s ease;

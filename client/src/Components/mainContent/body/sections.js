@@ -6,7 +6,7 @@ import queryString from 'query-string'
 import React, {Component} from 'react'
 import About from './About/About'
 import Overview from './Overview/Overview'
-import Related from './Related/Related'
+import Related from './Related/RelatedArtists'
 import { Route,Switch } from "react-router-dom";
 import Error from '../../Error'
 
@@ -31,7 +31,7 @@ class Sections extends Component {
         SubComponent = <Overview spotifyWebApi={this.props.spotifyWebApi}/>
       }
       else if(path === 'Related'){
-        SubComponent = <Related />
+        SubComponent = <Related spotifyWebApi={this.props.spotifyWebApi} />
       }
       else {
         SubComponent = <Error />
