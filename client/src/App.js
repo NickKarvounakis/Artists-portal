@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
 
 import Homepage from './Components/Homepage/Homepage'
 import Content from './Components/index'
-import Search from './Components/search'
+import Dashboard from './Components/dashboard/dashboard'
 import Error from './Components/Error'
 
 //FUNCTION THAT PICKS ONE RANDOM COLOR FROM THE COLORS.JSON FILE
@@ -32,7 +32,7 @@ class App extends Component {
 
           <Provider store={ store }>
             <Route exact path="/"   render={()=><Homepage spotifyWebApi={spotifyWebApi}/>}/>
-            <Route exact path="/dashboard"   render={()=><Search spotifyWebApi={spotifyWebApi}/>}/>
+            <Route exact path="/dashboard"   render={()=><Dashboard spotifyWebApi={spotifyWebApi}/>}/>
             <Route path="/dashboard/:id"  render={(props)=><Content spotifyWebApi={spotifyWebApi} parameters={props} />}/>
 
 

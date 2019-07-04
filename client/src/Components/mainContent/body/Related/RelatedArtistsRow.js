@@ -41,8 +41,8 @@ class RelatedArtistsRow extends React.Component {
                           <div>
                             <Grid container direction="row" alignItems="center" justify="center">
                             <img src="../../../spotify.png" width="83,3" height="83,3" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
-                            <img src="../../../soundcloud.svg" width="83,3" height="83,3" alt="soundcloud" style={{marginRight:'0.3em'}}/>
-                            <img src="../../../itunes.svg" width="60" height="60" alt="itunes" />
+                            <img src="../../../soundcloud.svg" width="83,3" height="83,3" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/people?q=${this.props.name}`)}/>
+                            <img src="../../../itunes.svg" width="60" height="60" alt="itunes" className="itunes-icon"/>
                             </Grid>
                           </div>
                           </figcaption>

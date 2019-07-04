@@ -69,7 +69,7 @@ class ContentHeader extends Component {
         </Grid>
         <Box mb={5} spacing={2}>
           <Grid container direction="row" alignItems='center' justify='center'>
-          <button  className="btn btn-sc" style={{color:'white',backgroundColor:'black'}}>
+          <button  className="btn btn-sc" style={{color:'white',backgroundColor:'black'}} onClick={() => {window.open(`https://soundcloud.com/search/people?q=${this.props.search_result}`)}}>
             <div className="button-container" >
                   <h1>Check them out on</h1>
                   <img src="../../soundcloud.png" alt="soundcloud" width="200" height="100" />
@@ -81,7 +81,7 @@ class ContentHeader extends Component {
                   <img src="../../spotify4.svg" alt="spotify" width="200" height="100" />
             </div>
           </button>
-          <button  className="btn btn-it" style={{color:'white',backgroundColor:'black'}} onClick={() => {window.open(`https://open.spotify.com/artist/${this.props.artist_id}`)}}>
+          <button  className="btn btn-it itunes-icon" style={{color:'white',backgroundColor:'black'}} onClick={() => {window.open(`https://open.spotify.com/artist/${this.props.artist_id}`)}}>
             <div className="button-container" >
                   <h1>Check them out on</h1>
                   <img src="../../ITunes.svg" alt="Itunes" width="100" height="100" />

@@ -4,11 +4,12 @@ import Spotify from 'spotify-web-api-js'
 import { Provider } from 'react-redux'
 import { connect } from 'react-redux'
 
+import Navbar from './dashboard/navbar/navbar'
 
   import { updateSearch }  from '../store/actions/search_token'
 
 import NowPlaying from './mainContent/footer/NowPlaying'
-import Search from './search'
+import Search from './dashboard/search'
 import ContentHeader from './mainContent/header/header'
 import ContentBody from './mainContent/body/body'
 import queryString from 'query-string';
@@ -46,9 +47,7 @@ class Content extends Component {
     }
   return (
       <div className="App">
-        <a href='http://localhost:8888'>
-                <button>Welcome</button>
-        </a>
+        <Navbar spotifyWebApi={this.props.spotifyWebApi}/>
         {content}
       </div>
 )}

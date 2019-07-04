@@ -33,8 +33,9 @@ class Related extends Component {
         let AlbumRows = []
         response.artists.forEach((artist) => {
           console.log(artist)
-          // const type = song.album_group
-           const image = artist.images[0].url
+           let image
+           if(artist.images.length !== 0)
+             image = artist.images[0].url
            const name = artist.name
            const spotify_url=artist.external_urls.spotify
             const AlbumRow = <RelatedArtistsRow    name={name} image={image}  spotify_url={spotify_url}/>
