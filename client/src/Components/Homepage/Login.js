@@ -52,7 +52,7 @@ else {
   console.log(this.props)
   return (
     <Route  exact path="/" render={() => (
-      this.state.loggedIn || this.props.token !== ""  ? (
+      this.state.loggedIn   ? (
         <Redirect to="/dashboard"/>
                             ) : (
         <a href='http://localhost:8888'>

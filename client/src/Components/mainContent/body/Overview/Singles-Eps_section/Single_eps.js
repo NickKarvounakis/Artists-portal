@@ -20,8 +20,13 @@ class SignleEps extends Component {
   }
 
   componentDidMount(){
-    this.getAlbums()
-    this.Appears_on()
+    setTimeout(() =>
+    {
+        this.getAlbums()
+        this.Appears_on()
+    }
+    , 10);
+
   }
 
 

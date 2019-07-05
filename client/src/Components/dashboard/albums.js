@@ -2,6 +2,24 @@ import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography';
 
 class Albums extends Component{
+
+  componentDidMount(){
+    setTimeout(() => {
+        this.getUserAlbums()
+      }, 6000);
+
+  }
+
+  getUserAlbums(){
+    console.log(this.props.spotifyWebApi)
+    this.props.spotifyWebApi.getRecommendations()
+      .then((response) => {
+        console.log(response)
+      })
+
+  }
+
+
   render(){
     return(
       <div style={{width:'100%',marginTop:'13em'}}>

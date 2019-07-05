@@ -15,7 +15,7 @@ import { Redirect } from 'react-router';
 
    constructor(props){
      super()
-     props.spotifyWebApi.setAccessToken(GetCookie('access_token'))
+     
      this.state = {
        input:''
      }

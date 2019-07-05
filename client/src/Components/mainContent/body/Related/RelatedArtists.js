@@ -19,7 +19,10 @@ class Related extends Component {
   }
 
   componentDidMount(){
-    this.getAlbums()
+    setTimeout(() => {
+        this.getAlbums()
+    },10)
+
   }
 
 
