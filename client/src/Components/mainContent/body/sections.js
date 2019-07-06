@@ -2,19 +2,15 @@
 // <Route  path={`/dashboard/${this.props.search_result}/Related`}   component={About} />
 // <Route  path={`/dashboard/${this.props.search_result}/About`}   component={About} />
 // <Route component={Error} status={404} />
-import queryString from 'query-string'
+
 import React, {Component} from 'react'
 import About from './About/About'
 import Overview from './Overview/Overview'
 import Related from './Related/RelatedArtists'
-import { Route,Switch } from "react-router-dom";
 import Error from '../../Error'
 
 class Sections extends Component {
-  constructor(){
-    super()
 
-  }
 
   componentDidMount(){
 

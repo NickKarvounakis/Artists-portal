@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Spotify from 'spotify-web-api-js'
 import {connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import ToptracksRow from './Top-tracksRow'
@@ -22,7 +21,7 @@ class Popular extends Component {
     this._isMounted = true
     setTimeout(() =>
     {     this.getTopSongs() }
-    , 10);
+    , 500);
 
   }
 

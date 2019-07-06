@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {connect } from 'react-redux';
-import { Link,Redirect} from 'react-router-dom'
-import {NavLink} from 'react-router-dom';
+import { Redirect} from 'react-router-dom'
+
 
 const TwitterTabs = (props) => {
   const [ index, onChange] = useState(0);
@@ -23,6 +23,8 @@ const TwitterTabs = (props) => {
     case 'About':
       section = 2
       break;
+    default:
+      break;
   }
   switch(index){
     case 0:
@@ -33,6 +35,8 @@ const TwitterTabs = (props) => {
       break;
     case 2:
       section2 = 'About'
+      break;
+    default:
       break;
   }
   console.log(section)

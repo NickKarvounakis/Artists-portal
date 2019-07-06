@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Spotify from 'spotify-web-api-js'
 import {connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -7,7 +6,6 @@ import Box from '@material-ui/core/Box';
 import { updateArtistId } from '../../../store/actions/artist_id'
 
 //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
-import GetCookie from '../../cookie_checker'
 
 
 class ContentHeader extends Component {
@@ -51,7 +49,6 @@ class ContentHeader extends Component {
 
   render(){
   let listItems
-  let content
   console.log(this.state.genres)
   // When genres render load them into the header
   if(this.state.genres){

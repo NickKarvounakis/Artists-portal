@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography'
 import { Redirect } from 'react-router';
 class Logout extends Component{
   constructor(){
@@ -27,7 +25,7 @@ class Logout extends Component{
              return <Redirect to={`/`}  />
        }
     return(
-            <a className="nav-link" onClick={() => this.onClick()}><h2 style={{whiteSpace:'nowrap'}}>Logout</h2></a>
+            <h2 style={{whiteSpace:'nowrap'}} className="nav-link" onClick={() => this.onClick()}>Logout</h2>
     )
   }
 }

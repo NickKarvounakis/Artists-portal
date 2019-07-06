@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Spotify from 'spotify-web-api-js'
 import {connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -25,7 +24,7 @@ class SignleEps extends Component {
         this.getAlbums()
         this.Appears_on()
     }
-    , 10);
+    , 500);
 
   }
 
@@ -58,11 +57,11 @@ class SignleEps extends Component {
         let AlbumRows = []
         response.items.forEach((song) => {
           console.log(song)
-          const type = song.album_group
           const image = song.images[1].url
           const name = song.name
           const release_date = song.release_date
-            const AlbumRow = <SingleEpsRow    name={name} image={image} release_date={release_date}/>
+          const spotify_url = song.external_urls.spotify
+            const AlbumRow = <SingleEpsRow    name={name} image={image} release_date={release_date} key={name} url={spotify_url}/>
             AlbumRows.push(AlbumRow)
 
         })
@@ -81,7 +80,6 @@ class SignleEps extends Component {
         let AlbumRows = []
         response.items.forEach((song) => {
           console.log(song)
-          const type = song.album_group
           const image = song.images[1].url
           const name = song.name
           const release_date = song.release_date

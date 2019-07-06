@@ -2,7 +2,6 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
@@ -10,6 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Info from './nav-components/user-info'
 import Dashboard from './nav-components/Dashboard'
 import Logout from './nav-components/Log-out'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inherit',
+    color: 'white',
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),

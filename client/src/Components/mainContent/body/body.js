@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import Spotify from 'spotify-web-api-js'
 import {connect } from 'react-redux';
 
 //SUB-COMPONENTS
 import Demo from './section-bar/Demo'
-import Overview from './Overview/Overview'
-import About from './About/About'
 import Error from '../../Error'
 import Sections from './sections'
 // material ui
-import Grid from '@material-ui/core/Grid';
 
-import { Route,Switch } from "react-router-dom";
+import { Route} from "react-router-dom";
 
 class ContentBody extends Component {
-  constructor(){
-    super()
 
-  }
 
 
 

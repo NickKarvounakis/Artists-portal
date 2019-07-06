@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography'
 import { Redirect } from 'react-router';
 class Dashboard extends Component{
   constructor(){
@@ -24,7 +22,7 @@ class Dashboard extends Component{
 
        }
     return(
-            <a className="nav-link" onClick={() => this.onClick()}><h2 style={{whiteSpace:'nowrap',marginLeft:'0.5em'}}>Dashboard</h2></a>
+          <h2 style={{whiteSpace:'nowrap',marginLeft:'0.5em'}} className="nav-link" onClick={() => this.onClick()}>Dashboard</h2>
     )
   }
 }

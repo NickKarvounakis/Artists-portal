@@ -1,12 +1,11 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Typography';
-import {Howl, Howler} from 'howler';
+import {Howl} from 'howler';
 
 import ProgressBar from './ProgressBar'
 
-let audio
+
 class ToptracksRow extends React.Component {
 
     constructor(){
@@ -34,7 +33,6 @@ class ToptracksRow extends React.Component {
       else if(action === 'play'){
                         var self = this
               var i
-              let c
               console.log(2)
               this.setState({
                 icon:true

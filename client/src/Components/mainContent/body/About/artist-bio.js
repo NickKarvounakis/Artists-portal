@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Spotify from 'spotify-web-api-js'
 import {connect } from 'react-redux';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 class Details extends Component {
@@ -14,6 +12,7 @@ class Details extends Component {
         current: null
       }
     }
+          this.button_text = 'Expand'
   }
 
   componentDidMount(){
@@ -61,11 +60,13 @@ class Details extends Component {
       this.setState({
         current:this.state.long
       })
+      this.button_text = 'shrink'
     }
     else {
       this.setState({
         current:this.state.short
       })
+      this.button_text = 'expand'
     }
     console.log(this.state.current)
   }
@@ -78,7 +79,7 @@ class Details extends Component {
     <Typography variant="h2" style={{color:'white',textAlign:'center'}}>BIO</Typography>
     <div className="bio">
       <h1 style={{color:'white',fontSize:'1.4rem',width:'90%'}}>{this.state.current}</h1>
-      <button onClick={() => this.changeBio()}>Expand</button>
+      <button onClick={() => this.changeBio()}>{this.button_text}</button>
     </div>
     </div>
 )}

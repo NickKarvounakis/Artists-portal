@@ -4,18 +4,16 @@ import { connect } from 'react-redux'
 
 //ACTIONS IMPORT
   import { updateSearch }  from '../../store/actions/search_token'
-  import { withRouter  } from 'react-router-dom'
-import { Redirect } from 'react-router';
+import { Redirect,Route } from 'react-router';
 
   //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
-  import GetCookie from '../cookie_checker'
 
 
  class Searchbar extends Component{
 
    constructor(props){
      super()
-     
+
      this.state = {
        input:''
      }
@@ -28,7 +26,7 @@ import { Redirect } from 'react-router';
     document.documentElement.style.setProperty('--background-gradient',this.props.color);
      const redirectToReferrer = this.state.redirectToReferrer;
       if (redirectToReferrer === true) {
-              return <Redirect to={`/dashboard/${this.state.input}/Overview`}  />
+         return   <Redirect to={`/dashboard/${this.state.input}/About`}  />
 
         }
     return(

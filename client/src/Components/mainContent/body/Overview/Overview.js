@@ -16,14 +16,14 @@ class Overview extends Component {
   componentDidMount(){
             setTimeout(() => {
                  this.setState({didMount: true})
-             }, 0)
+             }, 500)
          }
 
   render(){
           const {didMount} = this.state
   return (
   <div className={`fade-in ${didMount && 'visible'}`}>
-        <Grid container xs={12} direction="row" justify="flex-start" alignItems="flex-start">
+        <Grid container  direction="row" justify="flex-start" alignItems="flex-start">
         <Grid item xs={4}>
         <Popular spotifyWebApi={this.props.spotifyWebApi}/>
         </Grid>

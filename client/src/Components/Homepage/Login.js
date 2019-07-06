@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
-import Spotify from 'spotify-web-api-js'
 import { Route, Redirect } from 'react-router'
 import GetCookie from '../cookie_checker'
 //REACT ROUTER
-import {Link} from 'react-router-dom'
 
 //ACTION
 import { updateUrl } from '../../store/actions/user_login'

@@ -42,7 +42,7 @@ render(){
     </Grid>
         </div>
 
-      <section bottom>
+      <section >
 
     </section>
     </div>

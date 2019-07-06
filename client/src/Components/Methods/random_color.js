@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Color from './colors.json'
 
 const color_picker = () => {

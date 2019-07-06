@@ -1,22 +1,12 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Typography';
+
 import Button from '@material-ui/core/Button';
 
-const gradient = {
-  //background:'linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(249,249,255,0) 0%, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 77%, rgba(51,255,222,0.3) 94%)'
-  background:'linear-gradient(180deg, rgba(255,255,255,0) 37%, rgba(51,255,222,0.3) 100%)',
-  backgroundColor:"transparent"
-  //background: 'linear-gradient(180deg, rgba(255,255,255,0) 37%, rgba(153,0,0,0.5) 100%)'
-}
+
 
 class AlbumsRow extends React.Component {
 
-    constructor(){
-      super()
-
-    }
 
 
 
@@ -37,7 +27,7 @@ class AlbumsRow extends React.Component {
                             <div>
                               <img src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
                               <img src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/albums?q=${this.props.name}`)}/>
-                              <img src="../../../itunes.svg" width="50" height="100" alt="itunes" className="itunes-icon"/>
+                              <img src="../../../itunes.svg" width="50" height="100" alt="itunes" className="itunes-icon" onClick={() => window.open(this.props.apple_url)} />
                             </div>
                             <div >
                               <Button variant="contained" color="secondary" className=""><span style={{color:'white'}}>Tracklist and Lyrics</span></Button>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Spotify from 'spotify-web-api-js'
+
 import {connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -21,7 +21,7 @@ class Related extends Component {
   componentDidMount(){
     setTimeout(() => {
         this.getAlbums()
-    },10)
+    },100)
 
   }
 
@@ -41,7 +41,7 @@ class Related extends Component {
              image = artist.images[0].url
            const name = artist.name
            const spotify_url=artist.external_urls.spotify
-            const AlbumRow = <RelatedArtistsRow    name={name} image={image}  spotify_url={spotify_url}/>
+            const AlbumRow = <RelatedArtistsRow    name={name} image={image}  spotify_url={spotify_url} key={name}/>
             AlbumRows.push(AlbumRow)
         })
           this.setState({

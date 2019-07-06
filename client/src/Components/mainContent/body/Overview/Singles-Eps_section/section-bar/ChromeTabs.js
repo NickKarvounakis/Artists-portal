@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {connect } from 'react-redux';
-import { Link,Redirect} from 'react-router-dom'
-import {NavLink} from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 

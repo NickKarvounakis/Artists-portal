@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Spotify from 'spotify-web-api-js'
 import store from './store'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Homepage from './Components/Homepage/Homepage'
 import Content from './Components/index'
 import Dashboard from './Components/dashboard/dashboard'
 import Error from './Components/Error'
 
-//FUNCTION THAT PICKS ONE RANDOM COLOR FROM THE COLORS.JSON FILE
-import Random_color from './Components/Methods/random_color'
+
 
 const spotifyWebApi = new Spotify()
 

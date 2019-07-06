@@ -3,7 +3,7 @@ import Searchbar from './search'
 import Navbar from './navbar/navbar'
 import Albums from './albums'
   import GetCookie from '../cookie_checker'
-
+import { Redirect } from 'react-router';
 class Dashboard extends Component{
   constructor(props){
     super(props)
@@ -12,6 +12,8 @@ class Dashboard extends Component{
 
 
   render(){
+    if(!GetCookie('access_token'))
+      return <Redirect to='/' />
     return(
       <div>
         <div style={{marginBottom:'7em'}}>
