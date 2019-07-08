@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
-
+import Avatar from '@material-ui/core/Avatar';
 
 class Info extends Component{
   constructor(){
@@ -34,6 +34,7 @@ class Info extends Component{
       <Grid container direction="row" justify="flex-start" alignItems="center">
 
             <h2 style={{color:'white'}}>Welcome {this.state.display_name}</h2>
+            <Avatar alt={this.state.display_name} src={this.state.image} />
 
 
 

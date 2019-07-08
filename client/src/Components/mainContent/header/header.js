@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-
+import { Redirect,Route } from 'react-router';
 import { updateArtistId } from '../../../store/actions/artist_id'
 
 //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
@@ -17,7 +17,8 @@ class ContentHeader extends Component {
         name: 'Not Checked',
         image: '',
         genres:[]
-      }
+      },
+      falsesearch:false
     }
   }
 
@@ -32,7 +33,6 @@ class ContentHeader extends Component {
 
     this.props.spotifyWebApi.searchArtists(this.props.search_result)
       .then((response) => {
-        console.log(response)
         console.log('---------->',response.artists.items[0])
         this.setState({
           image:response.artists.items[0].images[0].url,
@@ -43,11 +43,19 @@ class ContentHeader extends Component {
         this.props.updateArtistId(response.artists.items[0].id)
         console.log(this.state.genres)
       })
-      .catch(err => console.error(err.message))
+      .catch(err => {
+         console.log(err.message)
+         this.setState({
+           falsesearch:true
+         })
+         this.props.updateArtistId(false)
+      })
   }
 
 
   render(){
+  if(this.state.falsesearch)
+    return <Redirect to='/dashboard' />
   let listItems
   console.log(this.state.genres)
   // When genres render load them into the header

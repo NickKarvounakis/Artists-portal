@@ -41,7 +41,7 @@ import { Redirect,Route } from 'react-router';
           <div class="box">
             <div class="container-4">
 
-            <input type="text" id="search" placeholder="Search" required  value={this.state.input}  onChange={(e) => this.inputChange(e)}/>
+            <input type="search" id="search" placeholder="Search" required  value={this.state.input}  onChange={(e) => this.inputChange(e)}/>
               <button className="icon">  <i className="fa fa-search"></i>
               </button>
             </div>

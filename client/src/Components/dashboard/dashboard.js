@@ -4,6 +4,10 @@ import Navbar from './navbar/navbar'
 import Albums from './albums'
   import GetCookie from '../cookie_checker'
 import { Redirect } from 'react-router';
+import CustomizedSnackbars from './error_snackbar'
+
+import { connect } from 'react-redux'
+
 class Dashboard extends Component{
   constructor(props){
     super(props)
@@ -12,15 +16,22 @@ class Dashboard extends Component{
 
 
   render(){
+    let warning
     if(!GetCookie('access_token'))
       return <Redirect to='/' />
+    if(this.props.valid_search)
+      {
+      warning =  <CustomizedSnackbars />
+      }
     return(
       <div>
+        { warning }
         <div style={{marginBottom:'7em'}}>
           <Navbar  spotifyWebApi={this.props.spotifyWebApi} />
         </div>
-        <div style={{marginBottom:'10em'}}>
+        <div >
           <Searchbar spotifyWebApi={this.props.spotifyWebApi} />
+
         </ div>
         <Albums spotifyWebApi={this.props.spotifyWebApi} />
       </div>
@@ -28,4 +39,11 @@ class Dashboard extends Component{
   }
 }
 
-export default Dashboard
+const mapStateToProps = (state) => {
+  console.log('state:',state)
+  return{
+    valid_search:state.colorReducer.warning
+  }
+}
+
+export default connect(mapStateToProps)(Dashboard)
