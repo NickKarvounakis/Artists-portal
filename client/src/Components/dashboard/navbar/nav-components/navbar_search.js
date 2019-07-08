@@ -1,15 +1,20 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-
+import IconButton from '@material-ui/core/IconButton';
+import InputBase from '@material-ui/core/InputBase';
+import { fade, makeStyles } from '@material-ui/core/styles';
+import SearchIcon from '@material-ui/icons/Search';
 
 //ACTIONS IMPORT
-  import { updateSearch }  from '../../store/actions/search_token'
+  import { updateSearch }  from '../../../../store/actions/search_token'
 import { Redirect,Route } from 'react-router';
 
   //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
 
-
  class Searchbar extends Component{
+
+
+
 
    constructor(props){
      super()
@@ -22,6 +27,7 @@ import { Redirect,Route } from 'react-router';
    }
 
    render(){
+
     console.log(this.props.color)
     document.documentElement.style.setProperty('--background-gradient',this.props.color);
      const redirectToReferrer = this.state.redirectToReferrer;
@@ -30,17 +36,18 @@ import { Redirect,Route } from 'react-router';
 
         }
     return(
-      <div className="search-background search__container" id="section1">
-          <div>
-            <div className="search-background search__container" id="section1">
-                <div>
-                  <form onSubmit={(event) => this.inputSubmit(event)}>
-                    <input className="searchBar search__input" placeholder="Search for an artist" value={this.state.input}  onChange={(e) => this.inputChange(e)} />
-                  </form>
-                </div>
+        <div className="container-main">
+        <form onSubmit={(event) => this.inputSubmit(event)}>
+          <div class="box">
+            <div class="container-4">
+
+            <input type="text" id="search" placeholder="Search" required  value={this.state.input}  onChange={(e) => this.inputChange(e)}/>
+              <button className="icon">  <i className="fa fa-search"></i>
+              </button>
             </div>
           </div>
-      </div>
+        </form>
+        </div>
     )}
 
     inputChange(event){
@@ -49,12 +56,13 @@ import { Redirect,Route } from 'react-router';
         })
       }
 
-    async inputSubmit(event){
+     async inputSubmit(event){
       await this.props.updateSearch(this.state.input)
-      await event.preventDefault()
+      event.preventDefault()
       await this.setState({
         redirectToReferrer:true
       })
+      await window.location.reload()
 
 
 
