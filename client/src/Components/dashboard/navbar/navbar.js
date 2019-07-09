@@ -10,7 +10,8 @@ import Searchbar from './nav-components/navbar_search'
 import Info from './nav-components/user-info'
 import Dashboard from './nav-components/Dashboard'
 import Logout from './nav-components/Log-out'
-
+import Switches from './switches'
+import SimpleMenu from './menu'
 
 import { connect } from 'react-redux'
 
@@ -45,6 +46,7 @@ import { connect } from 'react-redux'
           >
           </IconButton>
           <Info spotifyWebApi={this.props.spotifyWebApi}/>
+          <SimpleMenu />
           <Logout />
           <Dashboard />
           <Searchbar />

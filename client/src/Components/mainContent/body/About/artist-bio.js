@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 
+import SimpleModal from './bio-modal'
+
 class Details extends Component {
   constructor(){
     super()
@@ -76,10 +78,11 @@ class Details extends Component {
     console.log(document.cookie)
   return (
     <div className="bio-container">
+
     <Typography variant="h2" style={{color:'white',textAlign:'center'}}>BIO</Typography>
     <div className="bio">
       <h1 style={{color:'white',fontSize:'1.4rem',width:'90%'}}>{this.state.current}</h1>
-      <button onClick={() => this.changeBio()}>{this.button_text}</button>
+      <SimpleModal FullBio={this.state.long}/>
     </div>
     </div>
 )}

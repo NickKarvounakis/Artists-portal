@@ -109,32 +109,35 @@ class ToptracksRow extends React.Component {
     render(){
 
       return(
-                  <Grid container  item xs={12} direction="row" justify="flex-start" alignItems="center">
+                  <Grid container  item xs={12} direction="row" justify="center" alignItems="center">
                     <Grid item xs={6}>
-                      <img src={this.props.image} alt={this.props.name}  width="200" height="200" style={{marginRight:'1em'}}/>
+                      <img src={this.props.song.album.images[1].url} alt={this.props.song.name}  width="200" height="200" style={{marginRight:'1em'}}/>
                     </Grid>
                     <Grid container item xs={6} direction="column" justify="flex-start" alignItems="flex-start">
                     <Grid item xs={12}>
-                    <Typography variant="h5" style={{color:'white'}} >{this.props.name}</Typography>
+                    <Typography variant="h5" style={{color:'white'}} >{this.props.song.name}</Typography>
                     </Grid>
                     <Grid item  xs={12}>
-                    <p >Album:{this.props.album_name}</p>
+                    <p >Album:{this.props.song.album.name}</p>
                     </Grid>
                     <Grid container item xs={12} direction="row" alignItems="center" justify="Center">
 
                         {
                           !this.state.icon  ?
                           <Grid item xs={2}>
-                          <img src={`../../${'play'}.svg`} alt="play button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.preview_url,'play')}/>
+                          <img src={`../../${'play'}.svg`} alt="play button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'play')}/>
                           </Grid>
                           :
                           <div>
-                          <img src={`../../${'pause'}.svg`} alt="pause button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.preview_url,'stop')}/>
+                          <img src={`../../${'pause'}.svg`} alt="pause button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'stop')}/>
                           </div>
                         }
                         <Grid item xs={10}>
                           <ProgressBar percentage={this.state.percentage} />
                         </Grid>
+                      <Grid item>
+                        <img src="../../../spotify.svg" alt="spotify" width="100" height="100"  style={{cursor:'pointer'}}    onClick={() => {window.open(this.props.song.external_urls.spotify)}}/>
+                      </Grid>
 
                     </Grid>
                     </Grid>

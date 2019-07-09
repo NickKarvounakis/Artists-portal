@@ -8,7 +8,7 @@ import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 
 import { connect } from 'react-redux'
-import { updateColor }  from '../../store/actions/background-color'
+import { updateColor }  from '../../../store/actions/background-color'
 
 const DeepOrangeSwitch = withStyles({
   switchBase: {
@@ -41,9 +41,14 @@ const CrimsonSwitch = withStyles({
 
 
 function CustomizedSwitches(props) {
+  let colorvalue
+  if(props.color === 'crimson' || props.color === '')
+    colorvalue = false
+  else
+    colorvalue = true
   const [state, setState] = React.useState({
-    checkedA: false,
-    checkedB: true,
+    checkedA: colorvalue,
+    checkedB: !colorvalue,
   });
 
   const handleChange = (name,opposite) => event => {
@@ -53,13 +58,13 @@ function CustomizedSwitches(props) {
     document.documentElement.style.setProperty('--background-gradient','orangeRed');
     props.updateColor('orangeRed')
   }
-  else {
+  else if(state.checkedB){
     document.documentElement.style.setProperty('--background-gradient','crimson');
     props.updateColor('crimson')
   }
   return (
     <FormGroup>
-      <FormControlLabel
+      <FormControlLabel style={{backgroundColor:'white'}}
         control={
           <DeepOrangeSwitch
             checked={state.checkedA}
@@ -68,9 +73,9 @@ function CustomizedSwitches(props) {
             value="checkedA"
           />
         }
-        label=<Typography variant="h6" style={{color:'white'}}>Orange \ Black</Typography>
+        label=<Typography variant="h6" style={{color:'black'}}><span style={{color:'orangeRed'}}>Orange</span> \ Black</Typography>
       />
-      <FormControlLabel
+      <FormControlLabel style={{backgroundColor:'white'}}
         control={
           <CrimsonSwitch
             checked={state.checkedB}
@@ -79,14 +84,21 @@ function CustomizedSwitches(props) {
             value="checkedA"
           />
         }
-        label=<Typography variant="h6" style={{color:'white'}}>Crimson \ Black</Typography>
+        label=<Typography variant="h6" style={{color:'black'}}><span style={{color:'crimson'}}>Crimson</span> \ Black</Typography>
       />
     </FormGroup>
   );
+}
+
+const mapStateToProps = (state) => {
+  console.log('state:',state)
+  return{
+    color:state.colorReducer.color
+  }
 }
 
 const mapDispatchToProps = (dispatch) => ({
    updateColor: (value) => dispatch(updateColor(value))
 })
 
-export default connect(null,mapDispatchToProps)(CustomizedSwitches);
+export default connect(mapStateToProps,mapDispatchToProps)(CustomizedSwitches);

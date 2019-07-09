@@ -45,22 +45,15 @@ class Popular extends Component {
   //     })
   // }
 
-  getTopSongs(){
-    console.log(this.props.spotifyWebApi)
-    this.props.spotifyWebApi.getArtistTopTracks(this.props.artist_id,'US')
+  async getTopSongs(){
+    await this.props.spotifyWebApi.getArtistTopTracks(this.props.artist_id,'US')
       .then((response) => {
         let toptracksRows = []
         response.tracks.forEach((song) => {
-          console.log(song)
-          const image = song.album.images[1].url
-          const name = song.name
-          const preview_url = song.preview_url
-          const album_name = song.album.name
-          console.log(name,image,preview_url)
-          const toptracksRow = <ToptracksRow    image={image} name={name} album_name={album_name} preview_url={preview_url}   key={preview_url} duration={song.duration_ms}/>
+          console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',song)
+          const toptracksRow = <ToptracksRow song={song} />
           toptracksRows.push(toptracksRow)
         })
-        console.log(toptracksRows)
         if(this._isMounted){
           this.setState({
             rows:toptracksRows

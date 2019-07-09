@@ -8,15 +8,22 @@ import Grid from '@material-ui/core/Grid';
 
 class About extends Component {
 
+  constructor(){
+    super()
+    this.state = {didMount: false}
+  }
 
 
-
-
-
+  componentDidMount(){
+            setTimeout(() => {
+                 this.setState({didMount: true})
+             }, 200)
+         }
 
   render(){
+          const {didMount} = this.state
   return (
-    <div className="App">
+  <div className={`fade-in ${didMount && 'visible'}`}>
       <Grid container direction="row" >
       <Grid item xs={9}>
       <Details />

@@ -23,7 +23,7 @@ class Content extends Component {
 
 
   render(){
-    
+
     let query = this.props.parameters.match.params.id
     console.log('ASUNA',query)
     if(!this.props.search_result){
@@ -31,8 +31,8 @@ class Content extends Component {
       this.props.spotifyWebApi.setAccessToken(GetCookie('access_token'))
     }
     // const path = `/#access_token=${this.props.token.access_token}&refresh_token=${this.props.token.refresh_token}+`
-    let content
     const token_cookie = GetCookie('access_token')
+    let content
     if(token_cookie){
       content =
       <div className="content">

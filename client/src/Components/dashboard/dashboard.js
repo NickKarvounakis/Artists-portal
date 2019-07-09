@@ -5,6 +5,10 @@ import Albums from './albums'
   import GetCookie from '../cookie_checker'
 import { Redirect } from 'react-router';
 import CustomizedSnackbars from './error_snackbar'
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+
+
 
 import { connect } from 'react-redux'
 
@@ -31,7 +35,13 @@ class Dashboard extends Component{
         </div>
         <div >
           <Searchbar spotifyWebApi={this.props.spotifyWebApi} />
-
+            <Grid item xs>
+              <Typography variant="h2" style={{color:this.props.color,textAlign:'center'}}>Theme</Typography>
+              <Grid container direction="column"  item xs={12}      justify="flex-end" alignItems="flex-end">
+                <Grid container  direction="row" justify="center" alignItems="center">
+                </Grid>
+              </Grid>
+            </Grid>
         </ div>
         <Albums spotifyWebApi={this.props.spotifyWebApi} />
       </div>

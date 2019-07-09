@@ -16,11 +16,11 @@ class Overview extends Component {
   componentDidMount(){
             setTimeout(() => {
                  this.setState({didMount: true})
-             }, 500)
+             }, 1000)
          }
 
   render(){
-          const {didMount} = this.state
+  const {didMount} = this.state
   return (
   <div className={`fade-in ${didMount && 'visible'}`}>
         <Grid container  direction="row" justify="flex-start" alignItems="flex-start">
