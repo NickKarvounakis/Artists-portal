@@ -5,13 +5,25 @@ import Tab from "@material-ui/core/Tab";
 import {connect } from 'react-redux';
 
 import Grid from '@material-ui/core/Grid';
-
+import Typography from '@material-ui/core/Typography';
 
 const TwitterTabs = (props) => {
   const [ index, onChange] = useState(0);
   const [count , setCount] = useState(0);
-
-
+  let content
+  let content2
+  console.log(props.rows2)
+  if(props.rows.length === 0)
+    content = <Typography variant="h6" style={{color:'white'}}>NO SINGLES</Typography>
+  else
+    content = props.rows
+  if(props.rows2)
+    {
+    if(props.rows2.length === 0)
+      content2 = <Typography variant="h6" style={{color:'white'}}>NO APPEARANCES</Typography>
+    else
+      content2 = props.rows2
+    }
   return (
     <div>
     <Tabs
@@ -29,9 +41,9 @@ const TwitterTabs = (props) => {
     </Tabs>
       {index === 0 ?
       <Grid container item xs={12} direction="row" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}} >
-            {props.rows}
+            {content}
       </Grid> : <Grid container item xs={12} direction="row" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}} >
-            {props.rows2}
+            {content2}
       </Grid> }
     </div>
   );

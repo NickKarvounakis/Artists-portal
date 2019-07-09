@@ -104,7 +104,7 @@ class SignleEps extends Component {
         <Typography variant="h2" style={{color:'white',marginLeft:'0.5em'}}>Single and EPs</Typography>
         </Grid>
         <Demo rows={this.state.rows} rows2={this.state.rows2}/>
-      </React.Fragment >
+        </React.Fragment >
 
 )}
 }
