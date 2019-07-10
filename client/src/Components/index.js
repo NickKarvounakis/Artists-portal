@@ -17,15 +17,28 @@ import GetCookie from './cookie_checker'
 
 
 class Content extends Component {
+  constructor(){
+    super()
+    this.state = {
+      header:null,
+      body:null
+    }
+  }
 
-
-
+  // ASURES BODY IS FETCHED RIGHT AFTER HEADER IS FETCHED
+  async componentDidMount(){
+    const header = await <ContentHeader spotifyWebApi={this.props.spotifyWebApi} />
+    const body = await  <ContentBody spotifyWebApi={this.props.spotifyWebApi} />
+    await this.setState({
+      header:header,
+      body:body
+    })
+  }
 
 
   render(){
 
     let query = this.props.parameters.match.params.id
-    console.log('ASUNA',query)
     if(!this.props.search_result){
       console.log(this.props.updateSearch(query))
       this.props.spotifyWebApi.setAccessToken(GetCookie('access_token'))
@@ -36,8 +49,8 @@ class Content extends Component {
     if(token_cookie){
       content =
       <div className="content">
-        <ContentHeader spotifyWebApi={this.props.spotifyWebApi} />
-        <ContentBody spotifyWebApi={this.props.spotifyWebApi} />
+        {this.state.header}
+        {this.state.body}
       </div>
   }
     else {
