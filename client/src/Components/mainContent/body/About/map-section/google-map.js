@@ -7,7 +7,7 @@ import COUNTRIES from './countrycode-latlong.min' // object containing lat and l
 const MyMapComponent = withScriptjs(withGoogleMap((props) => {
   let country = props.country.toLowerCase();
   return <GoogleMap
-    defaultZoom={5}
+    defaultZoom={3}
     defaultCenter={{ lat: parseInt(COUNTRIES[country].lat), lng: parseInt(COUNTRIES[country].long) }}
   >
     {props.isMarkerShown && <Marker position={{ lat: parseInt(COUNTRIES[country].lat), lng: parseInt(COUNTRIES[country].long) }} />}
