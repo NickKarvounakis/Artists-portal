@@ -19,6 +19,7 @@ class Logout extends Component{
 }
 
   render(){
+    
     const redirectToReferrer = this.state.redirectToReferrer;
      if (redirectToReferrer === true) {
              this.delete_cookie('access_token') //logs out the user
