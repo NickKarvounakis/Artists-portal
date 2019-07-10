@@ -33,9 +33,9 @@ import { connect } from 'react-redux'
 
 
   render(){
-  let Searchbar
+  let Searchbarx
   if(window.location.pathname !== '/dashboard')
-    Searchbar = <Searchbar />
+    Searchbarx = <Searchbar />
   return (
     <div >
       <AppBar position="static" style={{backgroundColor: 'rgba(0,0,0,0)',boxShadow:'none'}}>
@@ -50,7 +50,7 @@ import { connect } from 'react-redux'
           <SimpleMenu />
           <Logout />
           <Dashboard />
-          {Searchbar}
+          {Searchbarx}
         </Toolbar>
       </AppBar>
     </div>
