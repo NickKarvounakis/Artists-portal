@@ -121,17 +121,14 @@ class ToptracksRow extends React.Component {
                     <p >Album:{this.props.song.album.name}</p>
                     </Grid>
                     <Grid container item xs={12} direction="row" alignItems="center" justify="Center">
-
+                      <Grid item xs={2} style={{maxWidth:'40px',marginRight:'0.3em'}}>
                         {
-                          !this.state.icon  ?
-                          <Grid item xs={2}>
+                          !this.state.icon  ?                          
                           <img src={`../../${'play'}.svg`} alt="play button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'play')}/>
-                          </Grid>
                           :
-                          <Grid item xs={2}>
                           <img src={`../../${'pause'}.svg`} alt="pause button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'stop')}/>
-                          </Grid>
                         }
+                      </Grid>
                         <Grid item xs={10}>
                           <ProgressBar percentage={this.state.percentage} />
                         </Grid>

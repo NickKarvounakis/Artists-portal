@@ -70,7 +70,7 @@ class Popular extends Component {
 
   render(){
   return (
-    <div className="test" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em',marginRight:'4em'}}>
+    <div className="test" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}}>
       <Typography variant="h1" style={{marginBottom:'0.25em'}}>
         Popular
       </Typography>

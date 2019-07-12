@@ -24,10 +24,10 @@ class Overview extends Component {
   return (
   <div className={`fade-in ${didMount && 'visible'}`}>
         <Grid container  direction="row" justify="flex-start" alignItems="flex-start">
-        <Grid item md={4} xs={12}>
+        <Grid item md={5} xs={12}>
         <Popular spotifyWebApi={this.props.spotifyWebApi}/>
         </Grid>
-        <Grid item md={8} xs={12}>
+        <Grid item md={7} xs={12}>
         <Albums  spotifyWebApi={this.props.spotifyWebApi}/>
         <SignleEps spotifyWebApi={this.props.spotifyWebApi} />
         </Grid>
