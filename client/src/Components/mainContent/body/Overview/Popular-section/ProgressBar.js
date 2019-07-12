@@ -3,7 +3,7 @@ import React from 'react'
 const ProgressBar = (props) => {
   console.log(props.percentage)
   return(
-    <div className="progress-bar" style={{marginLeft:'0.5em'}}>
+    <div className="progress-bar" >
         <Filler percentage={props.percentage}/>
     </div>
   )

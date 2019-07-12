@@ -109,11 +109,11 @@ class ToptracksRow extends React.Component {
     render(){
 
       return(
-                  <Grid container  item xs={12} direction="row" justify="center" alignItems="center">
-                    <Grid item xs={6}>
-                      <img src={this.props.song.album.images[1].url} alt={this.props.song.name}  width="200" height="200" style={{marginRight:'1em'}}/>
+                  <Grid container  item xs={12} direction="row" justify="center" alignItems="center" >
+                    <Grid item lg xs={6} style={{maxWidth:'200px',marginRight:'5em'}}>
+                      <img src={this.props.song.album.images[1].url} alt={this.props.song.name}  width="200" height="200" />
                     </Grid>
-                    <Grid container item xs={6} direction="column" justify="flex-start" alignItems="flex-start">
+                    <Grid  item lg xs={12} direction="column" justify="flex-start" alignItems="flex-start">
                     <Grid item xs={12}>
                     <Typography variant="h5" style={{color:'white'}} >{this.props.song.name}</Typography>
                     </Grid>
@@ -128,9 +128,9 @@ class ToptracksRow extends React.Component {
                           <img src={`../../${'play'}.svg`} alt="play button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'play')}/>
                           </Grid>
                           :
-                          <div>
+                          <Grid item xs={2}>
                           <img src={`../../${'pause'}.svg`} alt="pause button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'stop')}/>
-                          </div>
+                          </Grid>
                         }
                         <Grid item xs={10}>
                           <ProgressBar percentage={this.state.percentage} />

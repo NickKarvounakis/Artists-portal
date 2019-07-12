@@ -17,7 +17,7 @@ export default function SimpleMenu() {
 
   return (
     <div         >
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{color:'white',whiteSpace:'nowrap',marginTop:'0.3em'}}>
+      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{color:'white',whiteSpace:'nowrap'}}>
         <h2 className="nav-link">Theme</h2>
       </Button>
       <Menu

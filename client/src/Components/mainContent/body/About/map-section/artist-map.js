@@ -46,13 +46,13 @@ class Map extends Component {
   return (
     <div className="test">
       {this.state.country !== '' ?
-        <div style={{marginTop:'4em',marginRight:'8em'}}>
+        <div style={{marginTop:'4em',marginRight:'8em'}} className="map">
         <Typography variant='h2' style={{color:'white'}}>LOCATION<span><img src="../../location1.png" height="30" width="30" alt="location pointer"></img></span></Typography>
         <MyMapComponent
           isMarkerShown
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
           loadingElement={<div style={{ height: `100%` ,width:`100%`}} />}
-          containerElement={<div style={{ height: `300px` }} />}
+          containerElement={<div  style={{ height: `300px`}} className="map-container"/>}
           mapElement={<div style={{ height: `100%`,width:`100%` }} />}
         />
       </div>

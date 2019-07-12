@@ -12,16 +12,16 @@ render(){
   console.log(this.props.color)
   return(
     <div>
-    <div style={{marginLeft:'4em'}}>
+    <div className="homepage-container">
     <Typography style={{color:'white',marginBottom:'0.8em'}} variant="h1">Artist Infogram</Typography>
     <Grid container direction="row" >
-      <Grid item xs={10}>
+      <Grid item xs={12}>
         <Grid container item  direction="column" alignItems="flex-start" justify="center" xs={12}>
           <Grid item xs={12}>
-            <Typography variant="h1" style={{color:'white',textAlign:'left',fontSize:'5.5rem'}}>
+            <Typography variant="h1" className="body-text">
                 Learn
                 <br />
-                  <span style={{color:'black'}}>Everything </span>About
+                  <span className="homepage-span">Everything </span>About
                 <br/>
                 your favourite music artist <span style={{color:this.props.color}}>on the spot</span>
             </Typography>

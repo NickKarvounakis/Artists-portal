@@ -24,11 +24,11 @@ class About extends Component {
           const {didMount} = this.state
   return (
   <div className={`fade-in ${didMount && 'visible'}`}>
-      <Grid container direction="row" >
-      <Grid item xs={9}>
+      <Grid container direction="row">
+      <Grid item sm={12} lg={9} >
       <Details />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item sm lg={3}>
       <Map />
       </Grid>
       </Grid>

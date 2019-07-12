@@ -17,11 +17,11 @@ class AlbumsRow extends React.Component {
     render(){
       return(
                   <div>
-                      <Grid container item xs={12} direction="column" justify="flex-start">
+                      <Grid container item lg={12} direction="column" justify="flex-start">
                       <Grid item xs >
                         <div className="tilt ">
                         <figure style={{margin:'auto'}} className="imghvr-blur">
-                          <img src={this.props.image} alt={this.props.name}  />
+                          <img src={this.props.image} alt={this.props.name}  className="home-img"/>
                           <figcaption>
                             <h2 className="" style={{fontSize:'2rem',marginBottom:'auto',color:'white'}}>LISTEN ON</h2>
                             <div>

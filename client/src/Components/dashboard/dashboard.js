@@ -36,7 +36,6 @@ class Dashboard extends Component{
         <div >
           <Searchbar spotifyWebApi={this.props.spotifyWebApi} />
             <Grid item xs>
-              <Typography variant="h2" style={{color:this.props.color,textAlign:'center'}}>Theme</Typography>
               <Grid container direction="column"  item xs={12}      justify="flex-end" alignItems="flex-end">
                 <Grid container  direction="row" justify="center" alignItems="center">
                 </Grid>

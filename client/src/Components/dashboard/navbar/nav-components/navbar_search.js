@@ -36,12 +36,12 @@ import { Redirect,Route } from 'react-router';
 
         }
     return(
-        <div className="container-main">
+        <div className="container-main ">
         <form onSubmit={(event) => this.inputSubmit(event)}>
           <div class="box">
             <div class="container-4">
 
-            <input type="search" id="search" placeholder="Search" required  value={this.state.input}  onChange={(e) => this.inputChange(e)}/>
+            <input className="search-bar-nav" type="search" id="search" placeholder="Search" required  value={this.state.input}  onChange={(e) => this.inputChange(e)}/>
               <button className="icon">  <i className="fa fa-search"></i>
               </button>
             </div>

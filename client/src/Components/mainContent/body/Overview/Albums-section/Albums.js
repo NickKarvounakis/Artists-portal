@@ -88,9 +88,9 @@ class Albums extends Component {
 
    async getData() {
     let firstAPICall = await this.props.spotifyWebApi.getArtistAlbums(this.props.artist_id,{	"include_groups": "album","limit": 50})
+    let secondAPICall =  await fetch(`http://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${'xd'}&limit=1`).then((value) => value.json())
     let AlbumRows = []
-    let secondAPICall = await fetch(`http://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${'yung lean warlord'}&limit=1`).then((value) => value.json())
-    firstAPICall.items.forEach( (song) => {
+    firstAPICall.items.forEach((song) => {
       console.log(song)
       const type = song.album_group
       const image = song.images[1].url

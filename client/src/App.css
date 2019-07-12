@@ -39,81 +39,7 @@ background-image: linear-gradient( 35deg, var(--background-gradient) 50%, black 
   }
 }
 
-/*
-.pic-container{
-    max-width: 210px;
-    max-height: 210px;
-    margin: 50px;
-}
-.pic{
-    background: #fff;
-    position: absolute;
 
-    -webkit-transition: all 0.2s ease;
-     transition: all 0.2s ease;
-
-    backface-visibility:hidden;
-    -webkit-backface-visibility:hidden;
-}
-.pix:nth:child(1){
-    z-index: 3;
-}
-.pic:nth-child(2){
-    z-index: 1;
-}
-.pic:nth-child(3){
-    z-index: 2;
-}
-.pic-container:hover .pic:nth-child(1)
-{
-    -webkit-transform: rotate(15deg);
-     transform: rotate(15deg);
-
-    -webkit-transition: all 0.5s ease;
-     transition: all 0.5s ease;
-}
-
-.pic-container:hover .pic:nth-child(2){
-    -webkit-transform: rotate(7deg);
-     transform: rotate(7deg);
-
-    -webkit-transition: all 0.10s ease;
-     transition: all 0.10s ease;
-}
-
-.pic-container:hover .pic:nth-child(3){
-    -webkit-transform: rotate(-5deg);
-     transform: rotate(-5deg);
-}
-.pic-caption{
-    background: #82a3d4;
-    padding: 10px 15px;
-    color: #fff;
-    font-size: 12px;
-    position: relative;
-    z-index: 10;
-    top:90px;
-    left: 200px;
-
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-
-    -webkit-opacity: 0;
-    opacity: 0;
-
-}
-.pic-caption:hover{
-    background: #607fae;
-}
-.pic-container:hover .pic-caption{
-    left:230px;
-
-    -webkit-opacity: 1;
-    opacity: 1;
-} */
 
 
 /* HOMEPAGE PROGRESS BAR STYLING */
@@ -453,7 +379,7 @@ cursor: pointer;
 .filler{
   background: black;
 
-  height:9px;
+  height:7px;
 
   transition: width 1s ease-in;
 }
@@ -786,4 +712,201 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 
 .container-4:hover button.icon:hover{
   background: white;
+}
+
+
+/* HOMEPAGE */
+
+.body-text{
+  color:white;
+  text-align: left;
+  font-size:5.5rem;
+}
+
+.homepage-container{
+  margin-left:4em;
+}
+
+.homepage-span{
+  color:black;
+}
+
+.nav-link{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 600px) {
+  /* HOMEPAGE */
+
+  .homepage-container{
+    margin-left:0;
+  }
+
+
+  .body-text{
+    font-size:3rem!important;
+    color:white!important;
+    text-align: center;
+  }
+
+  .homepage-span{
+    color:white;
+  }
+
+  .btn-homepage{
+    font-size:0.5rem;
+    letter-spacing: none;
+    line-height: 1.3rem;
+    white-space: nowrap;
+    white-space: wrap;
+    margin-left: 1em;
+  }
+
+  .button-container{
+    width:100%;
+  }
+
+  .button-container img{
+    width:100px;
+  }
+  /* HOMEPAGE */
+
+  /*DASHBOARD*/
+  .search__input{
+    width:80%;
+  }
+
+  /* DASHBOARD */
+
+
+  /* NAVBAR */
+  .MuiToolbar-root{
+    display:block!important;
+  }
+
+  .MuiButton-text{
+    padding:0!important;
+  }
+
+  .nav-link{
+
+    margin-bottom:0;
+  }
+
+  .box{
+    position:static;
+    transform:none;
+    margin-left: 1.2em;
+    margin-bottom: 0.6em;
+  }
+
+  .search-bar-nav{
+    text-align: center;
+  }
+  /* NAVBAR */
+
+
+  /* artist page */
+  /* header */
+  .header-image{
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    max-height:250vh;
+    width:100%;
+  }
+
+  .large{
+    font-size: 3rem;
+    line-height: 100px;
+  }
+
+  .btn{
+    padding:2px;
+    font-size:0.5rem;
+  }
+
+  .btn-sc img,.btn-sp img,.btn-it img{
+    width: 50%;
+  }
+  /* header */
+
+
+  /* related */
+  .related-img{
+    width: 150px;
+    height:150px;
+  }
+
+
+  .related-img-hover{
+    height:70px;
+    width:70px;
+  }
+
+  .related-img-hover-sc{
+    height:50px;
+    width:50px;
+  }
+
+  .itunes-icon-hover{
+    height:40px;
+    width:40px;
+  }
+  /* related */
+
+  /* about */
+
+  .bio{
+    width:100%;
+  }
+
+  .bio h1{
+    font-size: 1rem!important;
+    width: 100%;
+  }
+
+  .bio-container{
+    margin-top:0;
+    margin-left:0;
+    width:100%;
+    text-align: left;
+  }
+
+
+  .map{
+    width: 100%;
+
+  }
+
+  .home-img{
+    width:130px;
+
+  }
+
+
+
+
+  /* about */
+  /* artist-page */
+
+}
+
+
+@media only screen and (min-width: 601px) and (max-width: 1200px)  {
+  .homepage-span{
+    color:white;
+  }
+  .home-img{
+    width: 200px;
+    height:200px;
+  }
+
+  .map-container{
+    margin-left: 10em;
+
+  }
 }

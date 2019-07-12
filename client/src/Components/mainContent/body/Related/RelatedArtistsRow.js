@@ -29,13 +29,13 @@ class RelatedArtistsRow extends React.Component {
                       <Grid item xs={12} >
                         <div className="tilt ">
                         <figure style={{margin:'auto',backgroundColor:'transparent'}} className="imghvr-blur">
-                          <img src={this.props.image} alt={this.props.name}  width="250" height="250" style={{margin:'0.5em'}}/>
+                          <img src={this.props.image} alt={this.props.name}  width="250" height="250" style={{margin:'0.5em'}} className='related-img'/>
                           <figcaption >
                           <div>
                             <Grid container direction="row" alignItems="center" justify="center">
-                            <img src="../../../spotify.png" width="83,3" height="83,3" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
-                            <img src="../../../soundcloud.svg" width="83,3" height="83,3" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/people?q=${this.props.name}`)}/>
-                            <img src="../../../itunes.svg" width="60" height="60" alt="itunes" className="itunes-icon"/>
+                            <img className='related-img-hover' src="../../../spotify.png" width="83,3" height="83,3" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)} />
+                            <img className='related-img-hover-sc' src="../../../soundcloud.svg" width="83,3" height="83,3" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/people?q=${this.props.name}`)}/>
+                            <img  src="../../../itunes.svg" width="60" height="60" alt="itunes" className="itunes-icon itunes-icon-hover"/>
                             </Grid>
                           </div>
                           </figcaption>
