@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import ControlledExpansionPanels from './ExpansionPanel.js'
-
+import Error from './error'
 
 class TracklistContent extends Component {
   constructor(){
@@ -91,7 +91,7 @@ async get_artistID(){
         console.log('ALBUMS',data.message)
         data.message.body.album_list.forEach((albums) => {
           const album_name = albums.album.album_name
-          if(album_name.includes(this.props.album_name))
+          if(album_name.includes(this.props.album.name))
             {
               this.setState({
                 album_id:albums.album.album_id
@@ -114,17 +114,26 @@ async get_artistID(){
         .then(function(data) {
           console.log('TRACK-LIST',data.message)
           let tracklist = []
-          data.message.body.track_list.forEach((track) => {
-            // console.log('NAME: ',track.track.track_name,' ID:',track.track.track_id)
-            const obj = {
-              name:track.track.track_name,
-              id:track.track.track_id
-            }
-          tracklist.push(obj)
-          })
-          this.setState({
-            tracklist:tracklist
-          })
+          if(data.message.body !== "")
+          {
+              data.message.body.track_list.forEach((track) => {
+                // console.log('NAME: ',track.track.track_name,' ID:',track.track.track_id)
+                const obj = {
+                  name:track.track.track_name,
+                  id:track.track.track_id
+                }
+              tracklist.push(obj)
+              })
+              this.setState({
+                tracklist:tracklist
+              })
+          }
+          else {
+            this.setState({
+              tracklist:[]
+            })
+            return null;
+          }
         }.bind(this))
         .catch(error => console.log('Request failed ' + error.message ));
   }
@@ -176,9 +185,14 @@ async get_artistID(){
 
 
   render(){
+  let fetch
+  if(this.state.tracklist.length > 0) //if musicxmatch returns tracklist
+     fetch = <ControlledExpansionPanels tracklist={this.state.tracklist} lyrics={this.state.lyrics} />
+  else
+     fetch= <Error album={this.props.album}/>
   return(
     <div className="test">
-      {this.state.loaded? <ControlledExpansionPanels tracklist={this.state.tracklist} lyrics={this.state.lyrics} />
+      {this.state.loaded? fetch
     :
     <Grid container direction="column" alignItems="center" justify="center">
       <div class="lds-dual-ring">

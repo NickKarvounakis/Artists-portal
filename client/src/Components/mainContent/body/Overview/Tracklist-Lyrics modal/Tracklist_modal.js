@@ -52,8 +52,8 @@ export default function TracklistModal(props) {
         onClose={handleClose}
       >
         <div style={modalStyle} className={`${classes.paper} bio `}>
-          <h2 id="modal-title" style={{color:'#9a9a9a',fontSize:'1rem'}}> {props.album_name} Tracklist</h2>
-            <TracklistContent album_name = {props.album_name}/>
+          <h2 id="modal-title" style={{color:'#9a9a9a',fontSize:'1rem'}}> {props.album.name} Tracklist</h2>
+            <TracklistContent album = {props.album}/>
         </div>
       </Modal>
     </div>

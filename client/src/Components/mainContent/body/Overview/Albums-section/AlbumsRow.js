@@ -30,7 +30,7 @@ class AlbumsRow extends React.Component {
                               <img src="../../../itunes.svg" width="50" height="100" alt="itunes" className="itunes-icon" onClick={() => window.open(this.props.apple_url)} />
                             </div>
                             <div >
-                              <TracklistModal album_name={this.props.name}/>
+                              <TracklistModal album={this.props}/>
                             </div>
                           </figcaption>
                         </figure>
