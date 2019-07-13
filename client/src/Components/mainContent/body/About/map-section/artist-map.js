@@ -23,6 +23,19 @@ class Map extends Component {
   }
 
 
+  most_popular_artist(max,array){
+    let max2 = max
+    let index = 0
+    for(let i = 1;i<array.length;i++){
+      let popularity = array[i].artist.artist_rating
+      if(popularity > max2){
+        max2 = popularity
+        index = i
+      }
+    }
+    return index
+  }
+
   getAlbums(){
     let base = `http://api.musixmatch.com/ws/1.1/artist.search?q_artist=${this.props.search_result}&page_size=5&apikey=90189c859bd033a23ddc8e216841b859`
     const proxy = 'http://cors-anywhere.herokuapp.com/'
@@ -30,9 +43,11 @@ class Map extends Component {
     fetch(url )
       .then( response => response.json())
       .then(function(data) {
-        console.log('NOBORU',data.message.body.artist_list[0].artist)
+        const max = data.message.body.artist_list[0].artist.artist_rating
+        const most_popular_artist_position= this.most_popular_artist(max,data.message.body.artist_list)
+        console.log('----------?',most_popular_artist_position)
         this.setState({
-            country:data.message.body.artist_list[0].artist.artist_country
+            country:data.message.body.artist_list[most_popular_artist_position].artist.artist_country
         })
       }.bind(this))
       .catch(error => console.log('Request failed ' + error.message ));

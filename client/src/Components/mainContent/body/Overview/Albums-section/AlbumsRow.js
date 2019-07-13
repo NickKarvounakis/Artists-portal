@@ -19,7 +19,7 @@ class AlbumsRow extends React.Component {
                   <div>
                       <Grid container item lg={12} direction="column" justify="flex-start">
                       <Grid item xs >
-                        <div className="tilt ">
+                        <div className="tilt " style={{marginRight:'1em'}}>
                         <figure style={{margin:'auto'}} className="imghvr-blur">
                           <img src={this.props.image} alt={this.props.name}  className="home-img" />
                           <figcaption>

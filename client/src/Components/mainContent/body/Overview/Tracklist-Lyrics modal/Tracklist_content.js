@@ -13,7 +13,8 @@ class TracklistContent extends Component {
     super()
     this.state = {
       tracklist:[],
-      lyrics:[]
+      lyrics:[],
+      loading:'loading'
     }
 
   }
@@ -21,6 +22,19 @@ class TracklistContent extends Component {
 
   componentDidMount(){
         this.get_Tracklist()
+        setInterval(() => {
+          if(this.state.loading.length === 10)
+            {
+              this.setState({
+                loading:'loading'
+              })
+            }
+          else{
+                this.setState({
+                  loading:this.state.loading + '.'
+                })
+            }
+        },1000)
 
   }
 
@@ -30,15 +44,32 @@ class TracklistContent extends Component {
   }
 }
 
+
+most_popular_artist(max,array){
+  let max2 = max
+  let index = 0
+  for(let i = 1;i<array.length;i++){
+    let popularity = array[i].artist.artist_rating
+    if(popularity > max2){
+      max2 = popularity
+      index = i
+    }
+  }
+  return index
+}
+
 async get_artistID(){
   const proxy = 'http://cors-anywhere.herokuapp.com/'
   let base = `http://api.musixmatch.com/ws/1.1/artist.search?q_artist=${this.props.search_result}&page_size=5&apikey=90189c859bd033a23ddc8e216841b859`
+
   let url = proxy + base
   await fetch(url )
     .then( response => response.json())
     .then(function(data) {
       console.log('ARTISTS',data)
-      const id = data.message.body.artist_list[0].artist.artist_id
+      const max = data.message.body.artist_list[0].artist.artist_rating
+      const most_popular_artist_position= this.most_popular_artist(max,data.message.body.artist_list)
+      const id = data.message.body.artist_list[most_popular_artist_position].artist.artist_id
       this.setState({
         artist_id:id
       })
@@ -76,12 +107,12 @@ async get_artistID(){
       const proxy = 'http://cors-anywhere.herokuapp.com/'
       console.log(this.state.album_id)
       let id = this.state.album_id
-      let base =`http://api.musixmatch.com/ws/1.1/album.tracks.get?album_id=${id}&apikey=90189c859bd033a23ddc8e216841b859`
+      let base =`http://api.musixmatch.com/ws/1.1/album.tracks.get?album_id=${id}&page_size=100&apikey=90189c859bd033a23ddc8e216841b859`
       let url = proxy + base
       await fetch(url )
         .then( response => response.json())
         .then(function(data) {
-          // console.log('TRACK-LIST',data.message)
+          console.log('TRACK-LIST',data.message)
           let tracklist = []
           data.message.body.track_list.forEach((track) => {
             // console.log('NAME: ',track.track.track_name,' ID:',track.track.track_id)
@@ -152,7 +183,7 @@ async get_artistID(){
     <Grid container direction="column" alignItems="center" justify="center">
       <div class="lds-dual-ring">
       </div>
-      <p style={{color:'#9a9a9a',fontSize:'2rem'}}>loading</p>
+      <p style={{color:'#9a9a9a',fontSize:'2rem'}}>{this.state.loading}</p>
     </Grid>
 
       }
