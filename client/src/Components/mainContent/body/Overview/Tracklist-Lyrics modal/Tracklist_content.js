@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import {connect } from 'react-redux';
 
 
-
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
+import ControlledExpansionPanels from './ExpansionPanel.js'
 
 
 class TracklistContent extends Component {
@@ -36,7 +37,7 @@ async get_artistID(){
   await fetch(url )
     .then( response => response.json())
     .then(function(data) {
-      console.log('ARTISTS',data.message.body.artist_list[0].artist.artist_id)
+      console.log('ARTISTS',data)
       const id = data.message.body.artist_list[0].artist.artist_id
       this.setState({
         artist_id:id
@@ -50,15 +51,16 @@ async get_artistID(){
   async get_albumID(){
     const proxy = 'http://cors-anywhere.herokuapp.com/'
     let id = this.state.artist_id
-    let base = `http://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${id}&s_release_date=desc&g_album_name=1&apikey=90189c859bd033a23ddc8e216841b859`
+    let base = `http://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${id}&s_release_date=desc&g_album_name=1&page_size=100&apikey=90189c859bd033a23ddc8e216841b859`
     let url = proxy + base
+    console.log('request to ',id)
     await fetch(url )
       .then( response => response.json())
       .then(function(data) {
         console.log('ALBUMS',data.message)
         data.message.body.album_list.forEach((albums) => {
           const album_name = albums.album.album_name
-          if(album_name === this.props.album_name)
+          if(album_name.includes(this.props.album_name))
             {
               this.setState({
                 album_id:albums.album.album_id
@@ -145,12 +147,15 @@ async get_artistID(){
   render(){
   return(
     <div className="test">
-      {this.state.loaded? this.state.tracklist.map((track,index) => {
-        return    <div key={index}>
-          <h1>{track.name}</h1>
-          <p>{this.state.lyrics[index]}</p>
-        </div>
-      }) : <h1>loading</h1>}
+      {this.state.loaded? <ControlledExpansionPanels tracklist={this.state.tracklist} lyrics={this.state.lyrics} />
+    :
+    <Grid container direction="column" alignItems="center" justify="center">
+      <div class="lds-dual-ring">
+      </div>
+      <p style={{color:'#9a9a9a',fontSize:'2rem'}}>loading</p>
+    </Grid>
+
+      }
     </div>
     )
 }

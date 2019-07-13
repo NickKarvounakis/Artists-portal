@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     position: 'absolute',
     width: '60%',
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#e9e9e9',
     border: '5px solid crimson',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 4),
@@ -52,7 +52,7 @@ export default function TracklistModal(props) {
         onClose={handleClose}
       >
         <div style={modalStyle} className={`${classes.paper} bio `}>
-          <h2 id="modal-title">Tracklist</h2>
+          <h2 id="modal-title" style={{color:'#9a9a9a',fontSize:'1rem'}}> {props.album_name} Tracklist</h2>
             <TracklistContent album_name = {props.album_name}/>
         </div>
       </Modal>

@@ -4,6 +4,14 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Switches from './switches'
 
+import ColorPalette from './colors.js'
+import Slider from './color_picker'
+import Grid from '@material-ui/core/Grid';
+
+
+
+import { SliderPicker } from 'react-color';
+
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -28,7 +36,23 @@ export default function SimpleMenu() {
         onClose={handleClose}
         style={{paddingBottom:0}}
       >
-        <MenuItem style={{backgroundColor:'white'}}><Switches /></MenuItem>
+      <Grid container  xs={12} direction="row" justify="flex-start" alignItems="center">
+            <Grid item xs={3}>
+              <ColorPalette />
+            </Grid>
+            <Grid item xs={1}>
+              <h1>OR</h1>
+            </Grid>
+            <Grid item xs>
+              <h1>Pick your own color</h1>
+            </Grid>
+            <Grid item xs>
+              <Slider />
+            </Grid>
+
+      </Grid>
+
+
 
       </Menu>
     </div>
