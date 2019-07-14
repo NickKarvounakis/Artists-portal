@@ -13,6 +13,13 @@ html{
   scroll-behavior: smooth;
 
 }
+::-moz-selection {    background-color: #8e44ad;
+  color: white;
+}
+::selection {
+  background-color: #8e44ad;
+  color: white;
+}
 
 body{
 
@@ -723,9 +730,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
   font-size:5.5rem;
 }
 
-.homepage-container{
-  margin-left:4em;
-}
+
 
 .homepage-span{
   color:black;
@@ -775,6 +780,23 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
   }
 }
 
+
+
+.collage, .full-width {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-top: 5px solid #9c27b0;
+  width: 100%;
+  transform: skewY(-5deg);
+
+}
+.wrap {
+  width: 80%;
+  max-width: 24em;
+  margin: 0 auto;
+  padding: 7em 0.625em;
+}
 
 /* MEDIA QUERIES */
 @media only screen and (max-width: 600px) {

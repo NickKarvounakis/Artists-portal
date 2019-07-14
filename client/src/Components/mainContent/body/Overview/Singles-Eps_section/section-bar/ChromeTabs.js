@@ -12,7 +12,6 @@ const TwitterTabs = (props) => {
   const [count , setCount] = useState(0);
   let content
   let content2
-  console.log(props.rows2)
   if(props.rows.length === 0)
     content = <Typography variant="h6" style={{color:'white'}}>NO SINGLES</Typography>
   else
@@ -31,7 +30,6 @@ const TwitterTabs = (props) => {
       centered
       value={index}
       onChange={(e, val) => {
-        console.log('E:',e,"VAL:",val)
         onChange(val)
         setCount(count+1)
       }}
@@ -40,9 +38,9 @@ const TwitterTabs = (props) => {
       <Tab classes={{ label: "MuiTab-label" }} label="Appears on" disableRipple />
     </Tabs>
       {index === 0 ?
-      <Grid container item xs={12} direction="row" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}} >
+      <Grid container item xs={12} direction="row" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}} key={Math.random(120)}>
             {content}
-      </Grid> : <Grid container item xs={12} direction="row" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}} >
+      </Grid> : <Grid container item xs={12} direction="row" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}} key={Math.random(120)}>
             {content2}
       </Grid> }
     </div>

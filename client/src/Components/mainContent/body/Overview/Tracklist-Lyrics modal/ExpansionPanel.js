@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(18),
-    color: theme.palette.text.secondary,
     fontWeight: 400,
     color: '#9a9a9a'
   },

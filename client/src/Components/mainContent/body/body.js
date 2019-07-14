@@ -3,7 +3,7 @@ import {connect } from 'react-redux';
 
 //SUB-COMPONENTS
 import Demo from './section-bar/Demo'
-import Error from '../../Error'
+// import Error from '../../Error'
 import Sections from './sections'
 // material ui
 
@@ -27,7 +27,6 @@ class ContentBody extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log('state:',state)
   return{
     search_result:state.userReducer.search_result
   }

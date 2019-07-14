@@ -39,9 +39,6 @@ const TwitterTabs = (props) => {
     default:
       break;
   }
-  console.log(section)
-  // console.log('foo:',foo,'Section:',section)
-  // console.log('COUNT->',count)
   return (
     <div>
     <Tabs
@@ -49,7 +46,6 @@ const TwitterTabs = (props) => {
       centered
       value={section}
       onChange={(e, val) => {
-        console.log('E:',e,"VAL:",val)
         onChange(val)
         setCount(count+1)
       }}

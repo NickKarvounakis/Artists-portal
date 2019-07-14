@@ -9,6 +9,7 @@ import Overview from './Overview/Overview'
 import Related from './Related/RelatedArtists'
 import Error from '../../Error'
 
+
 class Sections extends Component {
 
 
@@ -17,10 +18,8 @@ class Sections extends Component {
   }
 
     render(){
-      console.log('}}}}}}}}}}}}}}}}}}}}}',this.props)
       const path = this.props.parameters.match.params.section
       let SubComponent
-      console.log(path)
       if(path === 'About')
         SubComponent = <About />
       else if(path === 'Overview') {
@@ -33,7 +32,7 @@ class Sections extends Component {
         SubComponent = <Error />
       }
         return(
-          <div>
+          <div style={{marginBottom:'12em'}}>
               {SubComponent}
           </div>
         )

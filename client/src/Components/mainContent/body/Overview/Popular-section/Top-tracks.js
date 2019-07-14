@@ -27,31 +27,13 @@ class Popular extends Component {
 
 
 
-  // getAlbums(){
-  //   console.log(this.props.spotifyWebApi)
-  //   this.props.spotifyWebApi.getArtistAlbums(this.props.artist_id)
-  //     .then((response) => {
-  //       console.log('VEEEEEEEEEEEES---------->',response)
-  //       // if(response.item !== null || response.item)
-  //       // {
-  //       //     console.log(response.item.album.images[0])
-  //       //     this.setState({
-  //       //       nowPlaying:{
-  //       //         name: response.item.name,
-  //       //         image: response.item.album.images[0].url
-  //       //       }
-  //       //     })
-  //       // }
-  //     })
-  // }
 
   async getTopSongs(){
     await this.props.spotifyWebApi.getArtistTopTracks(this.props.artist_id,'US')
       .then((response) => {
         let toptracksRows = []
         response.tracks.forEach((song) => {
-          console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',song)
-          const toptracksRow = <ToptracksRow song={song} />
+          const toptracksRow = <ToptracksRow song={song} key={song.name}/>
           toptracksRows.push(toptracksRow)
         })
         if(this._isMounted){

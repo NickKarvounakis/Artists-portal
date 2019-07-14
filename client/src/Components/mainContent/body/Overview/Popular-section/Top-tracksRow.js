@@ -19,7 +19,6 @@ class ToptracksRow extends React.Component {
     }
 
     play_audio = (url,action) => {
-      console.log(this.audio)
       if(action === 'stop')
               {
 
@@ -31,9 +30,8 @@ class ToptracksRow extends React.Component {
               this.audio = null
         }
       else if(action === 'play'){
-                        var self = this
-              var i
-              console.log(2)
+              const  self = this
+              let i
               this.setState({
                 icon:true
               })
@@ -41,7 +39,6 @@ class ToptracksRow extends React.Component {
                 src: url,
                 format:['mp3', 'aac']
               })
-              console.log(this.audio)
 
               this.audio.on('load',() => {
                 this.audio.play()
@@ -57,14 +54,12 @@ class ToptracksRow extends React.Component {
 
                 i  = setInterval( timer, 1000 );
                   function timer()  {
-                    console.log( a );
                     self.setState({
                       percentage:self.state.percentage + (100/x)
                     })
                     if(a === 2)
                         self.audio.fade(1.0,0,1000)
                     if ( a < 1 ) {
-                        console.log( 'Reaching Stop' );
                         clearInterval( i );
                         return;
                     }
@@ -85,7 +80,6 @@ class ToptracksRow extends React.Component {
                   percentage:0,
                   icon:false
                 })
-                console.log('Finished!');
               });
             }
 
@@ -97,7 +91,6 @@ class ToptracksRow extends React.Component {
     }
 
     componentWillUnmount = () => {
-      console.log('chao')
       if(this.audio)
         {
         this.audio.unload()
@@ -113,17 +106,17 @@ class ToptracksRow extends React.Component {
                     <Grid item lg xs={6} style={{maxWidth:'200px',marginRight:'5em'}}>
                       <img src={this.props.song.album.images[1].url} alt={this.props.song.name}  width="200" height="200" />
                     </Grid>
-                    <Grid  item lg xs={12} direction="column" justify="flex-start" alignItems="flex-start">
+                    <Grid container item lg xs={12} direction="column" justify="flex-start" alignItems="flex-start">
                     <Grid item xs={12}>
                     <Typography variant="h5" style={{color:'white'}} >{this.props.song.name}</Typography>
                     </Grid>
                     <Grid item  xs={12}>
                     <p >Album:{this.props.song.album.name}</p>
                     </Grid>
-                    <Grid container item xs={12} direction="row" alignItems="center" justify="Center">
+                    <Grid container item xs={12} direction="row" alignItems="center" >
                       <Grid item xs={2} style={{maxWidth:'40px',marginRight:'0.3em'}}>
                         {
-                          !this.state.icon  ?                          
+                          !this.state.icon  ?
                           <img src={`../../${'play'}.svg`} alt="play button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'play')}/>
                           :
                           <img src={`../../${'pause'}.svg`} alt="pause button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'stop')}/>

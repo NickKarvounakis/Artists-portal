@@ -1,6 +1,6 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+
 
 
 class SingleEpsRow extends React.Component {
@@ -19,9 +19,6 @@ class SingleEpsRow extends React.Component {
                               <img src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.url)}/>
                               <img src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search?q=${this.props.name}`)}/>
                               <img src="../../../itunes.svg" width="50" height="100" alt="itunes" className="itunes-icon"/>
-                            </div>
-                            <div >
-                              <Button variant="contained" color="secondary" className="" ><span style={{color:'white'}}>Tracklist and Lyrics</span></Button>
                             </div>
                           </figcaption>
                         </figure>

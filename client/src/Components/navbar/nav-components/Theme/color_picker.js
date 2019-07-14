@@ -1,9 +1,7 @@
 import React from 'react';
 
-import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux'
-import { updateColor }  from '../../../store/actions/background-color'
-import { HuePicker } from 'react-color';
+import { updateColor }  from '../../../../store/actions/background-color'
 import { SliderPicker } from 'react-color';
 
 class Slider extends React.Component{

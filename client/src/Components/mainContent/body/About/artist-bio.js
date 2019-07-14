@@ -19,7 +19,6 @@ class Details extends Component {
 
   componentDidMount(){
     this.getAlbums()
-    this.getImages()
   }
 
 
@@ -39,22 +38,6 @@ class Details extends Component {
       .catch((err) => console.error(err))
   }
 
-  getImages(){
-
-
-
-      const url = `http://cors-anywhere.herokuapp.com/https://api.gettyimages.com/v3/search/images?phrase=kitties`
-      fetch(url,{
-        method: 'GET',
-        headers: new Headers({'Api-key':'j878g39yx378pa77djthzzpn'}),
-        mode:'no-cors'
-      })
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data)
-      })
-      .catch((err) => console.error(err))
-  }
 
   changeBio(){
     if(this.state.current === this.state.short)
@@ -70,12 +53,10 @@ class Details extends Component {
       })
       this.button_text = 'expand'
     }
-    console.log(this.state.current)
   }
 
 
   render(){
-    console.log(document.cookie)
   return (
     <div className="bio-container">
 

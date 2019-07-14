@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ProgressBar = (props) => {
-  console.log(props.percentage)
   return(
     <div className="progress-bar" >
         <Filler percentage={props.percentage}/>

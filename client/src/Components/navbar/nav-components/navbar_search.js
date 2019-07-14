@@ -1,13 +1,10 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
+
 
 //ACTIONS IMPORT
-  import { updateSearch }  from '../../../../store/actions/search_token'
-import { Redirect,Route } from 'react-router';
+  import { updateSearch }  from '../../../store/actions/search_token'
+import { Redirect } from 'react-router';
 
   //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
 
@@ -27,8 +24,6 @@ import { Redirect,Route } from 'react-router';
    }
 
    render(){
-
-    console.log(this.props.color)
     document.documentElement.style.setProperty('--background-gradient',this.props.color);
      const redirectToReferrer = this.state.redirectToReferrer;
       if (redirectToReferrer === true) {
@@ -38,8 +33,8 @@ import { Redirect,Route } from 'react-router';
     return(
         <div className="container-main ">
         <form onSubmit={(event) => this.inputSubmit(event)}>
-          <div class="box">
-            <div class="container-4">
+          <div className="box">
+            <div className="container-4">
 
             <input className="search-bar-nav" type="search" id="search" placeholder="Search" required  value={this.state.input}  onChange={(e) => this.inputChange(e)}/>
               <button className="icon">  <i className="fa fa-search"></i>

@@ -45,7 +45,6 @@ class Map extends Component {
       .then(function(data) {
         const max = data.message.body.artist_list[0].artist.artist_rating
         const most_popular_artist_position= this.most_popular_artist(max,data.message.body.artist_list)
-        console.log('----------?',most_popular_artist_position)
         this.setState({
             country:data.message.body.artist_list[most_popular_artist_position].artist.artist_country
         })
@@ -55,9 +54,7 @@ class Map extends Component {
 
 
   render(){
-  console.log('xd')
   this.props.set_country(this.state.country)
-  console.log('request to: ',process.env.REACT_APP_GOOGLE_KEY)
   return (
     <div className="test">
       {this.state.country !== '' ?
@@ -79,7 +76,6 @@ class Map extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log('state:',state)
   return{
     search_result:state.userReducer.search_result
   }

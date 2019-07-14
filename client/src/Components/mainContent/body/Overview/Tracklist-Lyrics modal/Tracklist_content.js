@@ -3,7 +3,7 @@ import {connect } from 'react-redux';
 
 
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+
 
 import ControlledExpansionPanels from './ExpansionPanel.js'
 import Error from './error'
@@ -66,7 +66,6 @@ async get_artistID(){
   await fetch(url )
     .then( response => response.json())
     .then(function(data) {
-      console.log('ARTISTS',data)
       const max = data.message.body.artist_list[0].artist.artist_rating
       const most_popular_artist_position= this.most_popular_artist(max,data.message.body.artist_list)
       const id = data.message.body.artist_list[most_popular_artist_position].artist.artist_id
@@ -84,11 +83,9 @@ async get_artistID(){
     let id = this.state.artist_id
     let base = `http://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${id}&s_release_date=desc&g_album_name=1&page_size=100&apikey=90189c859bd033a23ddc8e216841b859`
     let url = proxy + base
-    console.log('request to ',id)
     await fetch(url )
       .then( response => response.json())
       .then(function(data) {
-        console.log('ALBUMS',data.message)
         data.message.body.album_list.forEach((albums) => {
           const album_name = albums.album.album_name
           if(album_name.includes(this.props.album.name))
@@ -96,7 +93,6 @@ async get_artistID(){
               this.setState({
                 album_id:albums.album.album_id
               })
-              console.log('--------->',this.state.album_id)
             }
         })
       }.bind(this))
@@ -105,14 +101,12 @@ async get_artistID(){
 
   async get_TrackList(){
       const proxy = 'http://cors-anywhere.herokuapp.com/'
-      console.log(this.state.album_id)
       let id = this.state.album_id
       let base =`http://api.musixmatch.com/ws/1.1/album.tracks.get?album_id=${id}&page_size=100&apikey=90189c859bd033a23ddc8e216841b859`
       let url = proxy + base
       await fetch(url )
         .then( response => response.json())
         .then(function(data) {
-          console.log('TRACK-LIST',data.message)
           let tracklist = []
           if(data.message.body !== "")
           {
@@ -142,7 +136,6 @@ async get_artistID(){
   async get_lyrics(){
       const proxy = 'http://cors-anywhere.herokuapp.com/'
       let lyrics = []
-      console.log('HEYYYYYYYYYYYYYYY',this.state.tracklist)
       await this.asyncForEach(this.state.tracklist, async(track) => {
        let base =`http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${track.id}&apikey=90189c859bd033a23ddc8e216841b859`
 
@@ -150,9 +143,7 @@ async get_artistID(){
        await fetch(url )
         .then( response => response.json())
         .then( function(data) {
-          console.log(data)
           const status_code = data.message.header.status_code
-          console.log(status_code,'  ',track.name,' : ',data.message.body)
           if(status_code === 200)
              lyrics.push(data.message.body.lyrics.lyrics_body)
           else {
@@ -208,7 +199,6 @@ async get_artistID(){
 
 
 const mapStateToProps = (state) => {
-  console.log('state:',state)
   return{
     search_result:state.userReducer.search_result
   }

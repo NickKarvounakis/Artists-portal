@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import { Redirect,Route } from 'react-router';
+import { Redirect } from 'react-router';
 import { updateArtistId } from '../../../store/actions/artist_id'
 
 //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
@@ -29,22 +29,16 @@ class ContentHeader extends Component {
 
 
   getNowPlaying(){
-    console.log(this.props.spotifyWebApi)
-
     this.props.spotifyWebApi.searchArtists(this.props.search_result)
       .then((response) => {
-        console.log('---------->',response.artists.items[0])
         this.setState({
           image:response.artists.items[0].images[0].url,
           name:response.artists.items[0].name,
           genres:response.artists.items[0].genres
         })
-
         this.props.updateArtistId(response.artists.items[0].id)
-        console.log(this.state.genres)
       })
       .catch(err => {
-         console.log(err.message)
          this.setState({
            falsesearch:true
          })
@@ -57,7 +51,6 @@ class ContentHeader extends Component {
   if(this.state.falsesearch)
     return <Redirect to='/dashboard' />
   let listItems
-  console.log(this.state.genres)
   // When genres render load them into the header
   if(this.state.genres){
      listItems = this.state.genres.map((genre,index) =>
@@ -101,7 +94,6 @@ class ContentHeader extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log('state:',state)
   return{
     token:state.userReducer.token,
     search_result:state.userReducer.search_result,

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 //ACTIONS IMPORT
   import { updateSearch }  from '../../store/actions/search_token'
-import { Redirect,Route } from 'react-router';
+import { Redirect } from 'react-router';
 
   //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
 
@@ -22,13 +22,10 @@ import { Redirect,Route } from 'react-router';
    }
 
    render(){
-    console.log(this.props.color)
     document.documentElement.style.setProperty('--background-gradient',this.props.color);
      const redirectToReferrer = this.state.redirectToReferrer;
-      if (redirectToReferrer === true) {
+      if (redirectToReferrer === true)
          return   <Redirect to={`/dashboard/${this.state.input}/Overview`}  />
-
-        }
     return(
       <div className="search-background search__container" id="section1">
           <div>
@@ -50,6 +47,7 @@ import { Redirect,Route } from 'react-router';
       }
 
     async inputSubmit(event){
+      event.persist()
       await this.props.updateSearch(this.state.input)
       await event.preventDefault()
       await this.setState({

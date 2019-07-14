@@ -11,7 +11,6 @@ const generateClassName = createGenerateClassName({
 });
 
 function Demo(props) {
-  console.log('================',props.parameters.match.params.section)
   return (
     <JssProvider generateClassName={generateClassName}>
       <MuiThemeProvider

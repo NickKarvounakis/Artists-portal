@@ -16,19 +16,8 @@ class Login extends Component {
       loggedIn:params.access_token ? true : false,
     }
     if(params.access_token){
-
-      console.log('PARAMS------->',params)
       const allCookies = GetCookie('access_token')
-
-      console.log(allCookies)
-      if (document.cookie.split(';').filter((item) => item.trim().startsWith('access_token=')).length) {
-    console.log('The cookie "reader" exists (ES6)')
-}
-else {
-  console.log('cookie doesnt exist')
-}
       props.updateUrl(allCookies)
-      console.log('PARAMS------->',params)
     }
   }
 
@@ -47,13 +36,12 @@ else {
  }
 
   render(){
-  console.log(this.props)
   return (
     <Route  exact path="/" render={() => (
       this.state.loggedIn   ? (
         <Redirect to="/dashboard"/>
                             ) : (
-        <a href='http://localhost:8888'>
+        <a href='http://localhost:8888/login'>
           <button  className="btn-homepage btn-it" style={{color:'white',backgroundColor:'white'}} >
             <div className="button-container" >
                   <h1 style={{color:'black'}}>LOG-IN WITH</h1>

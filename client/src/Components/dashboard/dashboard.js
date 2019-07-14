@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import Searchbar from './search'
-import Navbar from './navbar/navbar'
+import Navbar from '../navbar/navbar'
 import Albums from './albums'
   import GetCookie from '../cookie_checker'
 import { Redirect } from 'react-router';
 import CustomizedSnackbars from './error_snackbar'
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+
 
 
 
@@ -35,12 +34,6 @@ class Dashboard extends Component{
         </div>
         <div >
           <Searchbar spotifyWebApi={this.props.spotifyWebApi} />
-            <Grid item xs>
-              <Grid container direction="column"  item xs={12}      justify="flex-end" alignItems="flex-end">
-                <Grid container  direction="row" justify="center" alignItems="center">
-                </Grid>
-              </Grid>
-            </Grid>
         </ div>
         <Albums spotifyWebApi={this.props.spotifyWebApi} />
       </div>
@@ -49,7 +42,6 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = (state) => {
-  console.log('state:',state)
   return{
     valid_search:state.colorReducer.warning
   }

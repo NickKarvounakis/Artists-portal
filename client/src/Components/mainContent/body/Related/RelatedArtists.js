@@ -28,14 +28,10 @@ class Related extends Component {
 
 
   getAlbums(){
-    console.log(this.props.spotifyWebApi)
     this.props.spotifyWebApi.getArtistRelatedArtists(this.props.artist_id)
       .then((response) => {
-
-
         let AlbumRows = []
         response.artists.forEach((artist) => {
-          console.log(artist)
            let image
            if(artist.images.length !== 0)
              image = artist.images[0].url
