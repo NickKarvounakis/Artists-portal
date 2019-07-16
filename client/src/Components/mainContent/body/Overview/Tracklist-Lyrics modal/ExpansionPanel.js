@@ -5,6 +5,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Grid from '@material-ui/core/Grid';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,7 +35,6 @@ export default function ControlledExpansionPanels(props) {
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-
   return (
     <div className={classes.root}>
 
@@ -52,6 +53,10 @@ export default function ControlledExpansionPanels(props) {
                       <ExpansionPanelDetails>
                         <Typography variant="h5">
                           {props.lyrics[index]}
+                         <Grid onClick={() => window.open(track.url)} container direction="row" style={{cursor:'pointer'}}>
+                           <img src="../../../musicxmatch.svg" alt="musicxmatch"  width="30" />
+                           <h6>Full lyrics</h6>
+                        </Grid>
                         </Typography>
                       </ExpansionPanelDetails>
                     </ExpansionPanel>

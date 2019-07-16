@@ -27,17 +27,23 @@ class Content extends Component {
     }
   }
 
+  async wait(ms) {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms);
+    });
+  }
+
   // ASURES BODY IS FETCHED RIGHT AFTER HEADER IS FETCHED
   async componentDidMount(){
   const header = await <ContentHeader spotifyWebApi={this.props.spotifyWebApi} />
-  await console.log('header done')
-    const body = await  <ContentBody spotifyWebApi={this.props.spotifyWebApi} />
-  await console.log('body done')
-
-    await this.setState({
+  await this.wait(500)
+  const body = await  <ContentBody spotifyWebApi={this.props.spotifyWebApi} />
+  await this.setState({
         header:header,
         body:body
       })
+  await this.wait(500)
+
 
 
   }

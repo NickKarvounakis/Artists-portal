@@ -23,14 +23,14 @@ class AlbumsRow extends React.Component {
                         <figure style={{margin:'auto'}} className="imghvr-blur">
                           <img src={this.props.image} alt={this.props.name}  className="home-img" />
                           <figcaption>
-                            <h2 className="" style={{fontSize:'2rem',marginBottom:'auto',color:'white'}}>LISTEN ON</h2>
+                            <h2 className="album-hov">LISTEN ON</h2>
                             <div>
-                              <img src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
-                              <img src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/albums?q=${this.props.name}`)}/>
-                              <img src="../../../itunes.svg" width="50" height="100" alt="itunes" className="itunes-icon" onClick={() => window.open(this.props.apple_url)} />
+                              <img className="album-hov-ic1" src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
+                              <img className="album-hov-ic1" src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/albums?q=${this.props.name}`)}/>
+                              <img className="album-hov-ic2" src="../../../itunes.svg" width="50" height="100" alt="itunes"  onClick={() => window.open(this.props.apple_url)} />
                             </div>
                             <div >
-                              <TracklistModal album={this.props}/>
+                              <TracklistModal album={this.props} />
                             </div>
                           </figcaption>
                         </figure>

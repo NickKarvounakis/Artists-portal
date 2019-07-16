@@ -60,7 +60,7 @@ class Albums extends Component {
         <Typography variant="h2" style={{color:'white',marginLeft:'0.5em'}}>Albums</Typography>
         </Grid>
         <Grid container item xs={12} direction="row" style={{marginLeft:'4em',textAlign:'left',marginTop:'3em'}} >
-        {this.state.rows}
+        {this.state.rows.length > 0 ? this.state.rows : <Typography variant="h6" style={{color:'white'}}>NO ALBUMS</Typography>}
         </Grid>
       </React.Fragment >
 

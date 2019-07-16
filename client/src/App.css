@@ -13,11 +13,11 @@ html{
   scroll-behavior: smooth;
 
 }
-::-moz-selection {    background-color: #8e44ad;
+::-moz-selection {    background-color: var(--background-gradient);
   color: white;
 }
 ::selection {
-  background-color: #8e44ad;
+  background-color: var(--background-gradient);
   color: white;
 }
 
@@ -798,9 +798,18 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
   padding: 7em 0.625em;
 }
 
+.album-hov{
+  font-size:2rem;
+  margin-bottom:'auto';
+  color:white
+
+}
+
 /* MEDIA QUERIES */
 @media only screen and (max-width: 600px) {
   /* HOMEPAGE */
+
+
 
   .homepage-container{
     margin-left:0;
@@ -842,7 +851,9 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 
   /* DASHBOARD */
 
-
+  .dashboard-alb-intro{
+    .margin-left: 0;
+  }
   /* NAVBAR */
   .MuiToolbar-root{
     display:block!important;
@@ -951,6 +962,29 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 
 
   /* about */
+
+
+
+  /* overview */
+  .album-hov{
+    display: none;
+
+  }
+
+  .album-hov-ic1{
+    width: 40px;
+    height: 40px;
+  }
+
+  .album-hov-ic2{
+    display:none;
+  }
+
+  .tracklist-btn{
+    padding: 0;
+    font-size: 0.8rem;
+
+  }
   /* artist-page */
 
 }

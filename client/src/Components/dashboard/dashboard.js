@@ -16,18 +16,7 @@ class Dashboard extends Component{
     props.spotifyWebApi.setAccessToken(GetCookie('access_token'))
   }
 
-  componentDidMount(){
-    // fetch(`/callback`, {
-    //     headers : {
-    //       'Content-Type': 'application/json',
-    //       'Accept': 'application/json'
-    //      }
-    //
-    //   })
-    //   .then((response) => response.json())
-    //   .then((messages) => {console.log("messages");});
 
-  }
 
   render(){
     if(GetCookie('color'))

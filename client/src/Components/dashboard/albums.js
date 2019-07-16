@@ -6,7 +6,7 @@ class Albums extends Component{
   render(){
     return(
       <div style={{width:'100%',marginTop:'7em'}}>
-        <Typography variant="h2" style={{color:'white',textAlign:'left',marginLeft:'1em'}}>FEATURED ARTISTS OF THE DAY</Typography>
+        <Typography className="dashboard-alb-intro" variant="h2" style={{color:'white',textAlign:'left'}}>FEATURED ARTISTS OF THE DAY</Typography>
         <div className="progress progress-infinite" ><div className="progress-bar3" ></div></div>
         <div  className="homepage-image"  style={{backgroundImage:'url(https://i.scdn.co/image/c1945e5f76b092a913fac1888eba5d30013c352d)'}}>
             <h1 className="homepage-album-text">MACHINE GIRL</h1>

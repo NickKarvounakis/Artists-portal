@@ -114,7 +114,8 @@ async get_artistID(){
                 // console.log('NAME: ',track.track.track_name,' ID:',track.track.track_id)
                 const obj = {
                   name:track.track.track_name,
-                  id:track.track.track_id
+                  id:track.track.track_id,
+                  url:track.track.track_share_url
                 }
               tracklist.push(obj)
               })

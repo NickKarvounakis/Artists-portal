@@ -44,7 +44,7 @@ export default function TracklistModal(props) {
 
   return (
     <div>
-      <Button variant="contained" color="secondary"  onClick={handleOpen}><span style={{color:'white'}}>Tracklist and Lyrics</span></Button>
+      <Button variant="contained" color="secondary"  className="tracklist-btn" onClick={handleOpen}><span style={{color:'white'}}>Tracklist and Lyrics</span></Button>
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
