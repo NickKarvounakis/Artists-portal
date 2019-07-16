@@ -33,12 +33,13 @@ class Related extends Component {
         let AlbumRows = []
         response.artists.forEach((artist) => {
            let image
-           if(artist.images.length !== 0)
-             image = artist.images[0].url
            const name = artist.name
            const spotify_url=artist.external_urls.spotify
-            const AlbumRow = <RelatedArtistsRow    name={name} image={image}  spotify_url={spotify_url} key={name}/>
+           if(artist.images.length !== 0)
+           {
+            const AlbumRow = <RelatedArtistsRow    name={name} image={artist.images[0].url}  spotify_url={spotify_url} key={name}/>
             AlbumRows.push(AlbumRow)
+           }
         })
           this.setState({
             rows:AlbumRows

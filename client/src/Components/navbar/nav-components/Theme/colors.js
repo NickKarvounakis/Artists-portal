@@ -36,7 +36,7 @@ class ColorPalette extends React.Component {
 
   render(){
     this.colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#2196f3', '#03a9f4', '#00bcd4',
-                  '#009688', '#8bc34a', '#cddc39', 'orangeRed', '#ffc107']
+                  '#009688', '#8bc34a', 'crimson', 'orangeRed', '#ffc107']
     console.log('vc')
     return(
       <Grid container direction="row" alignItems="center" justify="center" >

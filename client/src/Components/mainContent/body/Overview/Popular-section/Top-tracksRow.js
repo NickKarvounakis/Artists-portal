@@ -12,6 +12,7 @@ class ToptracksRow extends React.Component {
       super()
       this.state = {
         icon:false,
+        not_available:'',
         percentage: 0,
         preview_duration:0
       }
@@ -32,56 +33,64 @@ class ToptracksRow extends React.Component {
       else if(action === 'play'){
               const  self = this
               let i
-              this.setState({
-                icon:true
-              })
-              this.audio = new Howl({
-                src: url,
-                format:['mp3', 'aac']
-              })
-
-              this.audio.on('load',() => {
-                this.audio.play()
-              })
-              this.audio.on('play',() => {
-
-                this.audio.fade(0.0,1.0,500)
-                let x = this.audio.duration()
-                // this.setState({
-                //   preview_duration:Math.floor(this.audio.duration())
-                // })
-                let a = x;
-
-                i  = setInterval( timer, 1000 );
-                  function timer()  {
-                    self.setState({
-                      percentage:self.state.percentage + (100/x)
+              if(url) //if spotify returns a url that is not null
+                {
+                  this.setState({
+                    icon:true
+                  })
+                    this.audio = new Howl({
+                      src: url,
+                      format:['mp3', 'aac']
                     })
-                    if(a === 2)
-                        self.audio.fade(1.0,0,1000)
-                    if ( a < 1 ) {
-                        clearInterval( i );
-                        return;
-                    }
-                    a -= 1;
-                }
-              })
-              this.audio.on('stop',() => {
-                this.setState({
-                  percentage:0
-                })
-                clearInterval(i)
-              })
-              this.audio.on('end',() => {
 
-                this.audio.stop()
-                this.audio.unload()
-                this.setState({
-                  percentage:0,
-                  icon:false
-                })
-              });
+                  this.audio.on('load',() => {
+                      this.audio.play()
+                  })
+                  this.audio.on('play',() => {
+
+                    this.audio.fade(0.0,1.0,500)
+                    let x = this.audio.duration()
+                    // this.setState({
+                    //   preview_duration:Math.floor(this.audio.duration())
+                    // })
+                    let a = x;
+
+                    i  = setInterval( timer, 1000 );
+                      function timer()  {
+                        self.setState({
+                          percentage:self.state.percentage + (100/x)
+                        })
+                        if(a === 2)
+                            self.audio.fade(1.0,0,1000)
+                        if ( a < 1 ) {
+                            clearInterval( i );
+                            return;
+                        }
+                        a -= 1;
+                    }
+                  })
+                  this.audio.on('stop',() => {
+                    this.setState({
+                      percentage:0
+                    })
+                    clearInterval(i)
+                  })
+                  this.audio.on('end',() => {
+
+                    this.audio.stop()
+                    this.audio.unload()
+                    this.setState({
+                      percentage:0,
+                      icon:false
+                    })
+                  });
             }
+            else{
+              this.setState({
+                not_available:'Unfortunately something went wrong on spotify\'s end '
+              })
+            }
+          }
 
 
 
@@ -128,6 +137,7 @@ class ToptracksRow extends React.Component {
                       <Grid item>
                         <img src="../../../spotify.svg" alt="spotify" width="100" height="100"  style={{cursor:'pointer'}}    onClick={() => {window.open(this.props.song.external_urls.spotify)}}/>
                       </Grid>
+                      <h6>{this.state.not_available}</h6>
 
                     </Grid>
                     </Grid>

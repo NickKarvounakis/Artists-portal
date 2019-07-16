@@ -8,7 +8,6 @@ import CustomizedSnackbars from './error_snackbar'
 
 
 
-
 import { connect } from 'react-redux'
 
 class Dashboard extends Component{
@@ -17,8 +16,25 @@ class Dashboard extends Component{
     props.spotifyWebApi.setAccessToken(GetCookie('access_token'))
   }
 
+  componentDidMount(){
+    // fetch(`/callback`, {
+    //     headers : {
+    //       'Content-Type': 'application/json',
+    //       'Accept': 'application/json'
+    //      }
+    //
+    //   })
+    //   .then((response) => response.json())
+    //   .then((messages) => {console.log("messages");});
+
+  }
 
   render(){
+    if(GetCookie('color'))
+      document.documentElement.style.setProperty('--background-gradient',GetCookie('color'));
+    else {
+      document.documentElement.style.setProperty('--background-gradient','crimson');
+    }
     let warning
     if(!GetCookie('access_token'))
       return <Redirect to='/' />

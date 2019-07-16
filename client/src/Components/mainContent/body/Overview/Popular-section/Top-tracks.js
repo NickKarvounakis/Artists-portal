@@ -42,6 +42,7 @@ class Popular extends Component {
           })
         }
       })
+      .catch(err => window.location.reload())
 
   }
 

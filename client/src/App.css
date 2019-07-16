@@ -786,7 +786,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border-top: 5px solid #9c27b0;
+  border-top: 5px solid rgb(0, 188, 212);
   width: 100%;
   transform: skewY(-5deg);
 

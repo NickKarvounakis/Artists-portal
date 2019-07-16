@@ -29,12 +29,12 @@ class Content extends Component {
 
   // ASURES BODY IS FETCHED RIGHT AFTER HEADER IS FETCHED
   async componentDidMount(){
-    await setTimeout(() => {
-        console.log('loading...')
-    },1000)
-    const header = await <ContentHeader spotifyWebApi={this.props.spotifyWebApi} />
+  const header = await <ContentHeader spotifyWebApi={this.props.spotifyWebApi} />
+  await console.log('header done')
     const body = await  <ContentBody spotifyWebApi={this.props.spotifyWebApi} />
-      this.setState({
+  await console.log('body done')
+
+    await this.setState({
         header:header,
         body:body
       })
@@ -44,7 +44,11 @@ class Content extends Component {
 
 
   render(){
-
+    if(GetCookie('color'))
+      document.documentElement.style.setProperty('--background-gradient',GetCookie('color'));
+    else {
+      document.documentElement.style.setProperty('--background-gradient','crimson');
+    }
     let query = this.props.parameters.match.params.id
     if(!this.props.search_result){
       this.props.updateSearch(query)

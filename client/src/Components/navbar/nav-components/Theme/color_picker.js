@@ -6,6 +6,7 @@ import { SliderPicker } from 'react-color';
 
 class Slider extends React.Component{
 
+
   handleChangeComplete = (color, event) => {
       console.log(color.hex)
       document.documentElement.style.setProperty('--background-gradient',color.hex);
@@ -14,8 +15,6 @@ class Slider extends React.Component{
 
 
   render(){
-
-
   return (
     <React.Fragment>
       <SliderPicker onChangeComplete={ this.handleChangeComplete } />
