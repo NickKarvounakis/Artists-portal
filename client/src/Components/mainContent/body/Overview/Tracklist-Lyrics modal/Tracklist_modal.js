@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     width: '60%',
     backgroundColor: '#e9e9e9',
-    border: '5px solid crimson',
+    border: `5px solid ${getComputedStyle(document.documentElement).getPropertyValue('--background-gradient')}`,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 4),
     outline: 'none',
@@ -41,10 +41,10 @@ export default function TracklistModal(props) {
   const handleClose = () => {
     setOpen(false);
   };
-
+  let color = getComputedStyle(document.documentElement).getPropertyValue('--background-gradient');
   return (
     <div>
-      <Button variant="contained" color="secondary"  className="tracklist-btn" onClick={handleOpen}><span style={{color:'white'}}>Tracklist and Lyrics</span></Button>
+      <Button variant="contained" color="secondary"  className="tracklist-btn" onClick={handleOpen} style={{color:'white',backgroundColor:color}}><span >Tracklist and Lyrics</span></Button>
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"

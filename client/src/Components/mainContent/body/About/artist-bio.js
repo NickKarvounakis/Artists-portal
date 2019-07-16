@@ -57,14 +57,14 @@ class Details extends Component {
 
 
   render(){
-  return (
-    <div className="bio-container">
 
-    <Typography variant="h2" style={{color:'white',textAlign:'center'}}>BIO</Typography>
-    <div className="bio">
-      <h1 style={{color:'white',fontSize:'1.4rem',width:'90%'}}>{this.state.current}</h1>
-      <SimpleModal FullBio={this.state.long}/>
-    </div>
+  return (
+    <div className="bio-container" >
+      <Typography variant="h2" style={{color:'white',textAlign:'center'}}>BIO</Typography>
+      <div className="bio">
+        <h1 style={{color:'white',fontSize:'1.4rem',width:'90%'}}>{this.state.current}</h1>
+        <SimpleModal FullBio={this.state.long}/>
+      </div>
     </div>
 )}
 }

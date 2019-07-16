@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     width: '60%',
     backgroundColor: theme.palette.background.paper,
-    border: '5px solid crimson',
+    border: `5px solid ${getComputedStyle(document.documentElement).getPropertyValue('--background-gradient')}`,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 4),
     outline: 'none',
@@ -40,10 +40,10 @@ export default function SimpleModal(props) {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const color = getComputedStyle(document.documentElement).getPropertyValue('--background-gradient')
   return (
     <div>
-      <Button type="button" variant="outlined" color="secondary" onClick={handleOpen}>
+      <Button type="button" variant="outlined" color="secondary" onClick={handleOpen} style={{color:color}}>
         Expand
       </Button>
       <Modal

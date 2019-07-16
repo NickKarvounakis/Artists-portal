@@ -768,7 +768,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
   margin: 1px;
   border-radius: 50%;
   border: 5px solid #fff;
-  border-color: crimson transparent crimson transparent;
+  border-color: var(--background-gradient) transparent var(--background-gradient) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {

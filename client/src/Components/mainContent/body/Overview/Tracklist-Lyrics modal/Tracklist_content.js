@@ -177,6 +177,7 @@ async get_artistID(){
 
 
   render(){
+  let color = getComputedStyle(document.documentElement).getPropertyValue('--background-gradient');
   let fetch
   if(this.state.tracklist.length > 0) //if musicxmatch returns tracklist
      fetch = <ControlledExpansionPanels tracklist={this.state.tracklist} lyrics={this.state.lyrics} />
@@ -187,9 +188,9 @@ async get_artistID(){
       {this.state.loaded? fetch
     :
     <Grid container direction="column" alignItems="center" justify="center">
-      <div class="lds-dual-ring">
+      <div class="lds-dual-ring" >
       </div>
-      <p style={{color:'#9a9a9a',fontSize:'2rem'}}>{this.state.loading}</p>
+      <p style={{color:color,fontSize:'2rem'}}>{this.state.loading}</p>
     </Grid>
 
       }
