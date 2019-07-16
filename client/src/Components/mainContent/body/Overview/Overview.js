@@ -16,7 +16,7 @@ class Overview extends Component {
   componentDidMount(){
             setTimeout(() => {
                  this.setState({didMount: true})
-             }, 1000)
+             }, 100)
          }
 
   render(){

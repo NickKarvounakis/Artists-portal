@@ -120,7 +120,7 @@ class ToptracksRow extends React.Component {
                     <Typography variant="h5" style={{color:'white'}} >{this.props.song.name}</Typography>
                     </Grid>
                     <Grid item  xs={12}>
-                    <p >Album:{this.props.song.album.name}</p>
+                    <p >Album:{this.props.song.album.name}<br />Preview</p>
                     </Grid>
                     <Grid container item xs={12} direction="row" alignItems="center" >
                       <Grid item xs={2} style={{maxWidth:'40px',marginRight:'0.3em'}}>

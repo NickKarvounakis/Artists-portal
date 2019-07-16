@@ -9,7 +9,7 @@ class Details extends Component {
     super()
     this.state = {
       bio:{
-        short: null,
+        short: 'Not Avaliable',
         long: null,
         current: null
       }

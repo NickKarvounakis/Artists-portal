@@ -11,26 +11,29 @@ import Error from '../../Error'
 
 
 class Sections extends Component {
+    constructor(){
+      super()
+      this.state={
+        content:null
+      }
+    }
 
 
-  componentDidMount(){
-
-  }
 
     render(){
       const path = this.props.parameters.match.params.section
-      let SubComponent
-      if(path === 'About')
-        SubComponent = <About />
-      else if(path === 'Overview') {
-        SubComponent = <Overview spotifyWebApi={this.props.spotifyWebApi}/>
-      }
-      else if(path === 'Related'){
-        SubComponent = <Related spotifyWebApi={this.props.spotifyWebApi} />
-      }
-      else {
-        SubComponent = <Error />
-      }
+       let SubComponent
+       if(path === 'About')
+         SubComponent = <About />
+       else if(path === 'Overview') {
+         SubComponent = <Overview spotifyWebApi={this.props.spotifyWebApi}/>
+       }
+       else if(path === 'Related'){
+         SubComponent = <Related spotifyWebApi={this.props.spotifyWebApi} />
+       }
+       else {
+         SubComponent = <Error />
+       }
         return(
           <div style={{marginBottom:'12em'}}>
               {SubComponent}

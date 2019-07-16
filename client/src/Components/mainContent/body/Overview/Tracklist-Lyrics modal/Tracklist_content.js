@@ -60,7 +60,7 @@ most_popular_artist(max,array){
 
 async get_artistID(){
   const proxy = 'http://cors-anywhere.herokuapp.com/'
-  let base = `http://api.musixmatch.com/ws/1.1/artist.search?q_artist=${this.props.search_result}&page_size=5&apikey=90189c859bd033a23ddc8e216841b859`
+  let base = `http://api.musixmatch.com/ws/1.1/artist.search?q_artist=${this.props.search_result}&page_size=5&apikey=${process.env.REACT_APP_MUSICXMATCH_KEY}`
 
   let url = proxy + base
   await fetch(url )
@@ -81,7 +81,7 @@ async get_artistID(){
   async get_albumID(){
     const proxy = 'http://cors-anywhere.herokuapp.com/'
     let id = this.state.artist_id
-    let base = `http://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${id}&s_release_date=desc&g_album_name=1&page_size=100&apikey=90189c859bd033a23ddc8e216841b859`
+    let base = `http://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${id}&s_release_date=desc&g_album_name=1&page_size=100&apikey=${process.env.REACT_APP_MUSICXMATCH_KEY}`
     let url = proxy + base
     await fetch(url )
       .then( response => response.json())
@@ -102,7 +102,7 @@ async get_artistID(){
   async get_TrackList(){
       const proxy = 'http://cors-anywhere.herokuapp.com/'
       let id = this.state.album_id
-      let base =`http://api.musixmatch.com/ws/1.1/album.tracks.get?album_id=${id}&page_size=100&apikey=90189c859bd033a23ddc8e216841b859`
+      let base =`http://api.musixmatch.com/ws/1.1/album.tracks.get?album_id=${id}&page_size=100&apikey=${process.env.REACT_APP_MUSICXMATCH_KEY}`
       let url = proxy + base
       await fetch(url )
         .then( response => response.json())
@@ -138,7 +138,7 @@ async get_artistID(){
       const proxy = 'http://cors-anywhere.herokuapp.com/'
       let lyrics = []
       await this.asyncForEach(this.state.tracklist, async(track) => {
-       let base =`http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${track.id}&apikey=90189c859bd033a23ddc8e216841b859`
+       let base =`http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${track.id}&apikey=${process.env.REACT_APP_MUSICXMATCH_KEY}`
 
        let url = proxy + base
        await fetch(url )

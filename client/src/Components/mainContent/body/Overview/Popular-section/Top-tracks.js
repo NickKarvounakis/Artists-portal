@@ -21,7 +21,7 @@ class Popular extends Component {
     this._isMounted = true
     setTimeout(() =>
     {     this.getTopSongs() }
-    , 500);
+    , 800);
 
   }
 

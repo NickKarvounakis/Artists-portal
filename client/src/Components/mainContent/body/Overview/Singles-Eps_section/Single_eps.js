@@ -24,7 +24,7 @@ class SignleEps extends Component {
         this.getAlbums()
         this.Appears_on()
     }
-    , 500);
+    , 1000);
 
   }
 

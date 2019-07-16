@@ -23,7 +23,7 @@ class Albums extends Component {
     {
       this.getData()
    }
-    , 500);
+    , 900);
 
   }
 

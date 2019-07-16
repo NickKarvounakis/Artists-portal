@@ -27,7 +27,7 @@ class AlbumsRow extends React.Component {
                             <div>
                               <img className="album-hov-ic1" src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
                               <img className="album-hov-ic1" src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/albums?q=${this.props.name}`)}/>
-                              <img className="album-hov-ic2" src="../../../itunes.svg" width="50" height="100" alt="itunes"  onClick={() => window.open(this.props.apple_url)} />
+                              <img className="album-hov-ic2 itunes-icon" src="../../../itunes.svg" width="50" height="100" alt="itunes"  />
                             </div>
                             <div >
                               <TracklistModal album={this.props} />
