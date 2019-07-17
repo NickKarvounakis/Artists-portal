@@ -9,7 +9,7 @@ class Details extends Component {
     super()
     this.state = {
       bio:{
-        short: 'Not Avaliable',
+        short: null,
         long: null,
         current: null
       }
@@ -39,30 +39,27 @@ class Details extends Component {
   }
 
 
-  changeBio(){
-    if(this.state.current === this.state.short)
-    {
-      this.setState({
-        current:this.state.long
-      })
-      this.button_text = 'shrink'
-    }
-    else {
-      this.setState({
-        current:this.state.short
-      })
-      this.button_text = 'expand'
-    }
-  }
+
 
 
   render(){
 
+  let text,width
+  if(!this.state.short)
+    {
+      text = 'Not avaliable'
+      width = 100
+    }
+  else
+    {
+        text = this.state.short
+        width = 90
+    }
   return (
     <div className="bio-container" >
       <Typography variant="h2" style={{color:'white',textAlign:'center'}}>BIO</Typography>
       <div className="bio">
-        <h1 style={{color:'white',fontSize:'1.4rem',width:'90%'}}>{this.state.current}</h1>
+        <h1 style={{color:'white',fontSize:'1.4rem',width:`${width}%`}}>{text}</h1>
         <SimpleModal FullBio={this.state.long}/>
       </div>
     </div>

@@ -43,7 +43,7 @@ export default function SimpleModal(props) {
   const color = getComputedStyle(document.documentElement).getPropertyValue('--background-gradient')
   return (
     <div>
-      <Button type="button" variant="outlined" color="secondary" onClick={handleOpen} style={{color:color}}>
+      <Button type="button" variant="outlined" color="secondary" onClick={handleOpen} style={{color:color,borderColor:color}}>
         Expand
       </Button>
       <Modal

@@ -9,10 +9,6 @@ import {connect } from 'react-redux';
 class Homepage extends Component{
 
 
-  // const color = getComputedStyle(document.documentElement).getPropertyValue('--background-gradient'); // #999999
-  // const date = new Date()
-  // date.setHours(date.getHours() + 5)
-  // document.cookie = `color=${color}; expires=` + date.toUTCString()
 
 render(){
 
@@ -27,7 +23,6 @@ else {
   document.documentElement.style.setProperty('--background-gradient','rgb(0, 188, 212)');
 }
 let color = getComputedStyle(document.documentElement).getPropertyValue('--background-gradient');
-console.log(color)
   return(
     <div>
     <section className="homepage-container" >

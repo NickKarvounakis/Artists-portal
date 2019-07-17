@@ -25,15 +25,16 @@
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
-    "start": "concurrently \"nodemon ../auth-server/authorization_code/app.js\" \"react-scripts start --prefix client\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"nodemon ../auth-server/authorization_code/app.js\" \"react-scripts start --prefix client\""
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy":"http://localhost:8888",
+  "proxy":"http://localhost:3001",
   "browserslist": {
     "production": [
       ">0.2%",

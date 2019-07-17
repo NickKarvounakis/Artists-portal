@@ -52,6 +52,7 @@ import { Redirect } from 'react-router';
       await this.setState({
         redirectToReferrer:true
       })
+      await window.location.reload()
 
 
 

@@ -118,8 +118,8 @@ background-image: linear-gradient( 35deg, var(--background-gradient) 50%, black 
 
 
   align-items:left;
-  background-size:cover;
-  background-position: 50%;
+
+  background-position: top left;
   /* background: linear-gradient(transparent -30%,#181818); */
 }
 
