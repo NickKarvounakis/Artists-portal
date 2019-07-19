@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 
+
+
+//material UI
+import Grid from '@material-ui/core/Grid';
+
+//Components
 import Details from './artist-bio'
 import Map from './map-section/artist-map'
-
-
-import Grid from '@material-ui/core/Grid';
 
 class About extends Component {
 

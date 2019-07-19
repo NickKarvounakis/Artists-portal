@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+
+//Redux/router
 import {connect } from 'react-redux';
+import { updateArtistId } from '../../../store/actions/userReducer-actions/artist_id'
+import { Redirect } from 'react-router';
+
+
+//Material UI
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import { Redirect } from 'react-router';
-import { updateArtistId } from '../../../store/actions/artist_id'
 
-//FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
 
 
 class ContentHeader extends Component {
@@ -23,8 +27,8 @@ class ContentHeader extends Component {
   }
 
 
-  componentDidMount(){
-        this.getNowPlaying()
+   componentWillMount(){
+       this.getNowPlaying()
   }
 
 
@@ -95,7 +99,6 @@ class ContentHeader extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    token:state.userReducer.token,
     search_result:state.userReducer.search_result,
     artist_id:state.userReducer.artist_id
   }

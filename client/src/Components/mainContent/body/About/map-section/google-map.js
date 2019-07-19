@@ -1,8 +1,9 @@
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import React from 'react'
-
 import { connect } from 'react-redux'
-import COUNTRIES from './countrycode-latlong.min' // object containing lat and lng of every country in ISO 639-2
+
+// object containing lat and lng of every country in ISO 639-2
+import COUNTRIES from './countrycode-latlong.min'
 
 const MyMapComponent = withScriptjs(withGoogleMap((props) => {
   let country = props.country.toLowerCase();

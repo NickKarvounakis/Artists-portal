@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-
 import {connect } from 'react-redux';
+
+//Material-UI
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+//Components
 import RelatedArtistsRow from './RelatedArtistsRow'
 
 class Related extends Component {
@@ -19,20 +21,18 @@ class Related extends Component {
   }
 
   componentDidMount(){
-    setTimeout(() => {
-        this.getAlbums()
-    },100)
-
+        setTimeout(() => {
+            this.getAlbums()
+        },1000)
   }
 
 
 
-  getAlbums(){
-    this.props.spotifyWebApi.getArtistRelatedArtists(this.props.artist_id)
+   getAlbums(){
+     this.props.spotifyWebApi.getArtistRelatedArtists(this.props.artist_id)
       .then((response) => {
         let AlbumRows = []
         response.artists.forEach((artist) => {
-           let image
            const name = artist.name
            const spotify_url=artist.external_urls.spotify
            if(artist.images.length !== 0)
@@ -45,14 +45,10 @@ class Related extends Component {
             rows:AlbumRows
           })
       })
-
   }
 
 
-
-
   render(){
-
   return (
       <React.Fragment>
         <Typography variant="h2" style={{color:'white',marginLeft:'0.5em',textAlign:'left'}}>Similar artists</Typography>

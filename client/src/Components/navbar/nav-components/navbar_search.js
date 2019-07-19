@@ -1,21 +1,17 @@
 import React,{ Component } from 'react'
+
+//Redux/Router
+import { updateSearch }  from '../../../store/actions/userReducer-actions/search_token'
 import { connect } from 'react-redux'
-
-
-//ACTIONS IMPORT
-  import { updateSearch }  from '../../../store/actions/search_token'
 import { Redirect } from 'react-router';
 
-  //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
+
 
  class Searchbar extends Component{
 
 
-
-
    constructor(props){
      super()
-
      this.state = {
        input:''
      }
@@ -34,7 +30,6 @@ import { Redirect } from 'react-router';
         <form onSubmit={(event) => this.inputSubmit(event)}>
           <div className="box">
             <div className="container-4">
-
             <input className="search-bar-nav" type="search" id="search" placeholder="Search" required  value={this.state.input}  onChange={(e) => this.inputChange(e)}/>
               <button className="icon">  <i className="fa fa-search"></i>
               </button>
@@ -57,19 +52,7 @@ import { Redirect } from 'react-router';
         redirectToReferrer:true
       })
       await window.location.reload()
-
-
-
     }
-}
-
-
-
-const mapStateToProps = (state) => {
-  return{
-    token:state.token,
-    color:state.colorReducer.color
-  }
 }
 
 
@@ -78,4 +61,4 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Searchbar)
+export default connect(null,mapDispatchToProps)(Searchbar)

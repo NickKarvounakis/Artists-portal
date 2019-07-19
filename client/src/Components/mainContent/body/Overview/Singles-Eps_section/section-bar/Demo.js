@@ -1,7 +1,11 @@
 import React from "react";
 import JssProvider from "react-jss/lib/JssProvider";
+
+//MATERIAL ui
 import { createGenerateClassName } from "@material-ui/styles";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
+//COMPONENTS
 import TwitterTabs from './ChromeTabs'
 
 const muiBaseTheme = createMuiTheme();

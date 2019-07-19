@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Login from './Login'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import GetCookie from '../cookie_checker'
+import GetCookie from '../Methods/cookie_checker'
 
 import {connect } from 'react-redux';
 
@@ -53,23 +53,10 @@ let color = getComputedStyle(document.documentElement).getPropertyValue('--backg
     </Grid>
     </section>
     </div>
-
-
-
     )
   }
 
-
-
-}
-
-const mapStateToProps = (state) => {
-  return{
-    color:state.colorReducer.color
-  }
 }
 
 
-
-
-export default connect(mapStateToProps)(Homepage);
+export default Homepage;

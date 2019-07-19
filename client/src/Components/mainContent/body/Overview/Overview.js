@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 
+//Material-UI
+import Grid from '@material-ui/core/Grid';
 
+//Components
 import Popular from './Popular-section/Top-tracks'
 import Albums from './Albums-section/Albums'
 import SignleEps from './Singles-Eps_section/Single_eps'
 
-import Grid from '@material-ui/core/Grid';
-
 class Overview extends Component {
   constructor(){
     super()
-    this.state = {didMount: false}
+    this.state = {didMount: false,loading:false}
   }
+
+
 
   componentDidMount(){
             setTimeout(() => {

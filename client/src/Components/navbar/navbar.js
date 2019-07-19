@@ -1,21 +1,17 @@
+
 import React from 'react';
+
+//Material UI
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 
-
-
+//Components
 import Searchbar from './nav-components/navbar_search'
-
 import Info from './nav-components/user-info'
 import Dashboard from './nav-components/Dashboard'
 import Logout from './nav-components/Log-out'
 import SimpleMenu from './nav-components/Theme/menu'
-
-
-
-
-
 
 
 

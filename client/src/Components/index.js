@@ -1,19 +1,20 @@
+
+//React/React-router/redux
+import { Route,Switch} from "react-router-dom";
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux'
+import { updateSearch }  from '../store/actions/userReducer-actions/search_token'
 
+//Components
 import Navbar from './navbar/navbar'
-
-  import { updateSearch }  from '../store/actions/search_token'
-
-
 import ContentHeader from './mainContent/header/header'
 import ContentBody from './mainContent/body/body'
 import Footer from './mainContent/footer/Footer'
+import Error from './Error-route/Error'
 
 //METHODS
 //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
-import GetCookie from './cookie_checker'
+import GetCookie from './Methods/cookie_checker'
 
 
 class Content extends Component {
@@ -27,11 +28,7 @@ class Content extends Component {
     }
   }
 
-  // async wait(ms) {
-  //   return new Promise(resolve => {
-  //     setTimeout(resolve, ms);
-  //   });
-  // }
+
 
   // ASURES BODY IS FETCHED RIGHT AFTER HEADER IS FETCHED
   async componentDidMount(){
@@ -41,10 +38,6 @@ class Content extends Component {
         header:header,
         body:body
       })
-
-
-
-
   }
 
 
@@ -59,7 +52,7 @@ class Content extends Component {
       this.props.updateSearch(query)
       this.props.spotifyWebApi.setAccessToken(GetCookie('access_token'))
     }
-    // const path = `/#access_token=${this.props.token.access_token}&refresh_token=${this.props.token.refresh_token}+`
+
     const token_cookie = GetCookie('access_token')
     let content
     if(token_cookie){
@@ -75,8 +68,10 @@ class Content extends Component {
     }
   return (
       <div className="App">
-        <Navbar spotifyWebApi={this.props.spotifyWebApi}/>
-        {content}
+        <Switch>
+          <Route path='/dashboard/:id/:section'render={(props)=> <section> <Navbar spotifyWebApi={this.props.spotifyWebApi}/> {content} </section>       } />
+          <Route component={Error} />
+        </Switch>
       </div>
 )}
 }

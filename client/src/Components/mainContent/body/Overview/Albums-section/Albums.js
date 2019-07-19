@@ -27,7 +27,15 @@ class Albums extends Component {
 
   }
 
-
+  AlreadyExists(array,element){
+    let flag = true
+    array.forEach((album) => {
+      console.log(album,element)
+      if(album.props.name === element)
+        flag = false
+    })
+    return flag;
+  }
 
    async getData() {
     let firstAPICall = await this.props.spotifyWebApi.getArtistAlbums(this.props.artist_id,{	"include_groups": "album","limit": 50})
@@ -38,7 +46,7 @@ class Albums extends Component {
       const release_date = song.release_date
       const spotify_url=song.external_urls.spotify
       const apple_url = secondAPICall.results[0].collectionViewUrl
-      if( song.images.length > 0)
+      if( song.images.length > 0 && this.AlreadyExists(AlbumRows,name))
       {
         const AlbumRow = <AlbumsRow    name={name} image={ song.images[1].url} release_date={release_date} spotify_url={spotify_url} key={spotify_url} apple_url={apple_url}/>
         AlbumRows.push(AlbumRow)

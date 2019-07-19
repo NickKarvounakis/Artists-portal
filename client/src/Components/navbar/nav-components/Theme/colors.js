@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import { connect } from 'react-redux'
-import { updateColor }  from '../../../../store/actions/background-color'
+import { updateColor }  from '../../../../store/actions/colorReducer-actions/background-color'
 
 class ColorPalette extends React.Component {
   constructor(){
@@ -17,6 +17,8 @@ class ColorPalette extends React.Component {
       current_color:color
     })
     document.documentElement.style.setProperty('--background-gradient',color);
+    document.documentElement.style.setProperty('--background-animation','gradient');
+    document.documentElement.style.setProperty('--background-animation-time','2s');
     this.props.updateColor(color)
   }
 

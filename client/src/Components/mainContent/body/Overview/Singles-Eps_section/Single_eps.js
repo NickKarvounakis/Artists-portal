@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
+
+//Material-UI
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+//Components
 import SingleEpsRow from './Single_eps_row'
 import Demo from './section-bar/Demo'
+
+
 
 class SignleEps extends Component {
 
@@ -28,6 +33,14 @@ class SignleEps extends Component {
 
   }
 
+  AlreadyExists(array,element){
+    let flag = true
+    array.forEach((album) => {
+      if(album.props.name === element)
+        flag = false
+    })
+    return flag;
+  }
 
 
   getAlbums(){
@@ -39,9 +52,11 @@ class SignleEps extends Component {
           const name = song.name
           const release_date = song.release_date
           const spotify_url = song.external_urls.spotify
-            const AlbumRow = <SingleEpsRow    name={name} image={image} release_date={release_date} key={spotify_url + '' + name } url={spotify_url}/>
-            AlbumRows.push(AlbumRow)
-
+          if(this.AlreadyExists(AlbumRows,name))
+          {
+          const AlbumRow = <SingleEpsRow    name={name} image={image} release_date={release_date} key={spotify_url + '' + name } url={spotify_url}/>
+          AlbumRows.push(AlbumRow)
+          }
         })
           this.setState({
             rows:AlbumRows
@@ -58,8 +73,11 @@ class SignleEps extends Component {
           const name = song.name
           const release_date = song.release_date
           const spotify_url = song.external_urls.spotify
+          if(this.AlreadyExists(AlbumRows,name))
+          {
             const AlbumRow = <SingleEpsRow    name={name} image={image} release_date={release_date} url={spotify_url} key={spotify_url + ' ' + name}/>
             AlbumRows.push(AlbumRow)
+          }
 
         })
           this.setState({
@@ -78,7 +96,7 @@ class SignleEps extends Component {
         <Typography variant="h2" style={{color:'white',marginLeft:'0.5em'}}>Single and EPs</Typography>
         </Grid>
         <Demo rows={this.state.rows} rows2={this.state.rows2}/>
-        </React.Fragment >
+      </React.Fragment >
 
 )}
 }

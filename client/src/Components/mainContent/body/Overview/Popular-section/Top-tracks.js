@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
-import Typography from '@material-ui/core/Typography';
-import ToptracksRow from './Top-tracksRow'
+
+
+//Material UI
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
+//Components
+import ToptracksRow from './Top-tracksRow'
 
 
 class Popular extends Component {

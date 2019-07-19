@@ -86,6 +86,7 @@ async get_artistID(){
     await fetch(url )
       .then( response => response.json())
       .then(function(data) {
+                  console.log(data)
         data.message.body.album_list.forEach((albums) => {
           const album_name = albums.album.album_name
           if(album_name.includes(this.props.album.name))
@@ -107,6 +108,7 @@ async get_artistID(){
       await fetch(url )
         .then( response => response.json())
         .then(function(data) {
+                    console.log(data)
           let tracklist = []
           if(data.message.body !== "")
           {

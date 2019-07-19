@@ -1,14 +1,13 @@
 import React from 'react';
+
+//MATERIAL UI
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 
-
-
+//Components
 import ColorPalette from './colors.js'
 import Slider from './color_picker'
-import Grid from '@material-ui/core/Grid';
-
-
 
 
 export default function SimpleMenu() {
@@ -20,6 +19,11 @@ export default function SimpleMenu() {
 
   function handleClose() {
     setAnchorEl(null);
+  }
+
+  function rainbow(){
+    document.documentElement.style.setProperty('--background-animation','colorAnimation');
+    document.documentElement.style.setProperty('--background-animation-time','0.5s');
   }
 
   return (
@@ -47,7 +51,9 @@ export default function SimpleMenu() {
             </Grid>
             <Grid item xs>
               <Slider />
+              <h4 className="rainbow-text" onClick={() => rainbow()}>?</h4>
             </Grid>
+
 
       </Grid>
 

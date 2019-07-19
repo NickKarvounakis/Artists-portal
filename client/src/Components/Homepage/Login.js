@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
 import { Route, Redirect } from 'react-router'
-import GetCookie from '../cookie_checker'
-//REACT ROUTER
+import { updateUrl } from '../../store/actions/userReducer-actions/user_login'
+//Methods
+import GetCookie from '../Methods/cookie_checker'
 
-//ACTION
-import { updateUrl } from '../../store/actions/user_login'
+
 
 
 class Login extends Component {
@@ -55,11 +55,7 @@ class Login extends Component {
 )}
 }
 
-const mapStateToProps = (state) => {
-  return {
-    token: state.userReducer.token
-  };
-};
+
 
 const mapDispatchToProps = (dispatch) => ({
 
@@ -68,4 +64,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);

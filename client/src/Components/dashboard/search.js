@@ -1,12 +1,8 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-
-
-//ACTIONS IMPORT
-  import { updateSearch }  from '../../store/actions/search_token'
+import { updateSearch }  from '../../store/actions/userReducer-actions/search_token'
 import { Redirect } from 'react-router';
 
-  //FUNCTION THAT EXTRACTS THE VALUE FROM THE COOKIE:ACCESS_TOKEN
 
 
  class Searchbar extends Component{
@@ -52,21 +48,9 @@ import { Redirect } from 'react-router';
       await this.setState({
         redirectToReferrer:true
       })
-      await window.location.reload()
-
-
-
     }
 }
 
-
-
-const mapStateToProps = (state) => {
-  return{
-    token:state.token,
-    color:state.colorReducer.color
-  }
-}
 
 
 const mapDispatchToProps = (dispatch) => ({
@@ -74,4 +58,4 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Searchbar)
+export default connect(null,mapDispatchToProps)(Searchbar)

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
+//Material-UI
 import Typography from '@material-ui/core/Typography';
 
+//Components
 import SimpleModal from './bio-modal'
 
 class Details extends Component {

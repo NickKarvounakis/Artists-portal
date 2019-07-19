@@ -1,8 +1,13 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+
+//Audio Proccessing Library
 import {Howl} from 'howler';
 
+//Material-UI
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
+//Components
 import ProgressBar from './ProgressBar'
 
 

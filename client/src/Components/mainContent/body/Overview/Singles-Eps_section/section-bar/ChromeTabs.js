@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import {connect } from 'react-redux';
 
+//MATERIAL-UI
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 
 const TwitterTabs = (props) => {
   const [ index, onChange] = useState(0);
