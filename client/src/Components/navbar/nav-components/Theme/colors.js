@@ -42,7 +42,7 @@ class ColorPalette extends React.Component {
       this.colors.map((color) => {
         if(this.state.current_color === color)
           return <Grid item  key={color} style={{backgroundColor:color,marginRight:'1em',marginBottom:'1em'}} className="color-icn" onClick={() => this.changeColor(color)} >
-                    <img src="../../../checkmark.png" alt="checkmark" width="20" height="20" style={{display:'block',margin:'auto',marginTop:'0.5em'}}/>
+                    <img src="../../../images/checkmark.png" alt="checkmark" width="20" height="20" style={{display:'block',margin:'auto',marginTop:'0.5em'}}/>
                   </Grid>
         else
           return <Grid item  key={color} style={{backgroundColor:color,marginRight:'1em',marginBottom:'1em'}} className="color-icn" onClick={() => this.changeColor(color)}></Grid>

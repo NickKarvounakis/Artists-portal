@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import Login from './Login'
+
+//MATERIAL UI
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+//METHODS
 import GetCookie from '../Methods/cookie_checker'
-
-import {connect } from 'react-redux';
+//Components
+import Login from './Login'
 
 class Homepage extends Component{
 

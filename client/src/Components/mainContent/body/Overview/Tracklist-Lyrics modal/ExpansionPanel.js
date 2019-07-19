@@ -56,7 +56,7 @@ export default function ControlledExpansionPanels(props) {
                         <Typography variant="h5">
                           {props.lyrics[index]}
                          <Grid onClick={() => window.open(track.url)} container direction="row" style={{cursor:'pointer'}}>
-                           <img src="../../../musicxmatch.svg" alt="musicxmatch"  width="30" />
+                           <img src="../../../images/musicxmatch.svg" alt="musicxmatch"  width="30" />
                            <h6>Full lyrics</h6>
                         </Grid>
                         </Typography>

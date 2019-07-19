@@ -33,9 +33,9 @@ class RelatedArtistsRow extends React.Component {
                           <figcaption >
                           <div>
                             <Grid container direction="row" alignItems="center" justify="center">
-                            <img className='related-img-hover' src="../../../spotify.png" width="83,3" height="83,3" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)} />
-                            <img className='related-img-hover-sc' src="../../../soundcloud.svg" width="83,3" height="83,3" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/people?q=${this.props.name}`)}/>
-                            <img  src="../../../itunes.svg" width="60" height="60" alt="itunes" className="itunes-icon itunes-icon-hover"/>
+                            <img className='related-img-hover' src="../../../images/spotify.svg" width="83,3" height="83,3" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)} />
+                            <img className='related-img-hover-sc' src="../../../images/soundcloud.svg" width="83,3" height="83,3" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/people?q=${this.props.name}`)}/>
+                            <img  src="../../../images/itunes.svg" width="60" height="60" alt="itunes" className="itunes-icon itunes-icon-hover"/>
                             </Grid>
                           </div>
                           </figcaption>

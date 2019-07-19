@@ -25,9 +25,9 @@ class AlbumsRow extends React.Component {
                           <figcaption>
                             <h2 className="album-hov">LISTEN ON</h2>
                             <div>
-                              <img className="album-hov-ic1" src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
-                              <img className="album-hov-ic1" src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/albums?q=${this.props.name}`)}/>
-                              <img className="album-hov-ic2 itunes-icon" src="../../../itunes.svg" width="50" height="100" alt="itunes"  />
+                              <img className="album-hov-ic1" src="../../../images/spotify.svg" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(this.props.spotify_url)}/>
+                              <img className="album-hov-ic1" src="../../../images/soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search/albums?q=${this.props.name}`)}/>
+                              <img className="album-hov-ic2 itunes-icon" src="../../../images/itunes.svg" width="50" height="100" alt="itunes"  />
                             </div>
                             <div >
                               <TracklistModal album={this.props} />

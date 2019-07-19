@@ -30,7 +30,6 @@ class Albums extends Component {
   AlreadyExists(array,element){
     let flag = true
     array.forEach((album) => {
-      console.log(album,element)
       if(album.props.name === element)
         flag = false
     })

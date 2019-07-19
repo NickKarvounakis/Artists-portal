@@ -131,16 +131,16 @@ class ToptracksRow extends React.Component {
                       <Grid item xs={2} style={{maxWidth:'40px',marginRight:'0.3em'}}>
                         {
                           !this.state.icon  ?
-                          <img src={`../../${'play'}.svg`} alt="play button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'play')}/>
+                          <img src={`../../images/${'play'}.svg`} alt="play button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'play')}/>
                           :
-                          <img src={`../../${'pause'}.svg`} alt="pause button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'stop')}/>
+                          <img src={`../../images/${'pause'}.svg`} alt="pause button" width="40" height="40" style={{cursor:'pointer'}} onClick={() => this.play_audio(this.props.song.preview_url,'stop')}/>
                         }
                       </Grid>
                         <Grid item xs={10}>
                           <ProgressBar percentage={this.state.percentage} />
                         </Grid>
                       <Grid item>
-                        <img src="../../../spotify.svg" alt="spotify" width="100" height="100"  style={{cursor:'pointer'}}    onClick={() => {window.open(this.props.song.external_urls.spotify)}}/>
+                        <img src="../../../images/spotify.svg" alt="spotify" width="100" height="100"  style={{cursor:'pointer'}}    onClick={() => {window.open(this.props.song.external_urls.spotify)}}/>
                       </Grid>
                       <h6>{this.state.not_available}</h6>
 

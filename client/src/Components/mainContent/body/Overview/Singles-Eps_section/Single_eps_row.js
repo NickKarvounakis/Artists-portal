@@ -15,9 +15,9 @@ function SingleEpsRow(props) {
                           <figcaption>
                             <h2 className="" style={{fontSize:'2rem',marginBottom:'auto'}}>LISTEN ON</h2>
                             <div>
-                              <img src="../../../spotify.png" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(props.url)}/>
-                              <img src="../../../soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search?q=${props.name}`)}/>
-                              <img src="../../../itunes.svg" width="50" height="100" alt="itunes" className="itunes-icon"/>
+                              <img src="../../../images/spotify.svg" width="100" height="100" alt="spotify" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(props.url)}/>
+                              <img src="../../../images/soundcloud.svg" width="80" height="100" alt="soundcloud" style={{marginRight:'0.3em',cursor:'pointer'}} onClick={() => window.open(`https://soundcloud.com/search?q=${props.name}`)}/>
+                              <img src="../../../images/itunes.svg" width="50" height="100" alt="itunes" className="itunes-icon"/>
                             </div>
                           </figcaption>
                         </figure>

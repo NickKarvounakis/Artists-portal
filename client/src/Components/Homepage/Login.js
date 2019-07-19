@@ -45,7 +45,7 @@ class Login extends Component {
           <button  className="btn-homepage btn-it" style={{color:'white',backgroundColor:'white'}} >
             <div className="button-container" >
                   <h1 style={{color:'black'}}>LOG-IN WITH</h1>
-                  <img src="./spotify4.svg" alt="spotify" width="400" height="150" />
+                  <img src="./images/spotify4.svg" alt="spotify" width="400" height="150" />
                   <h1 style={{color:'black'}}>TO GET STARTED</h1>
             </div>
           </button>

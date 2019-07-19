@@ -208,10 +208,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => ({
-//
-//    set_country: (value) => dispatch(set_country(value))
-// })
+
 
 
 export default connect(mapStateToProps)(TracklistContent);
