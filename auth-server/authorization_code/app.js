@@ -14,9 +14,9 @@ var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session')
-var client_id = '319410f226a84d2bac8c11e0639670e0'; // Your client id
-var client_secret = '296401c110f24224a250823f98c7071e'; // Your secret
-var redirect_uri = 'http://localhost:3001/api/callback'; // Your redirect uri
+var client_id = ''; // Your client id
+var client_secret = ''; // Your secret
+var redirect_uri = ''; // Your redirect uri
 var app = express();
 let callbackx
 // Deployment
