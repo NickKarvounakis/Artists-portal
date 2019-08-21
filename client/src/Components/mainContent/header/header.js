@@ -53,7 +53,7 @@ class ContentHeader extends Component {
 
   render(){
   if(this.state.falsesearch)
-    return <Redirect to='/dashboard' />
+    return <Redirect to='/error' />
   let listItems
   // When genres render load them into the header
   if(this.state.genres){

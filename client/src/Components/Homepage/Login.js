@@ -41,7 +41,7 @@ class Login extends Component {
       this.state.loggedIn   ? (
         <Redirect to="/dashboard"/>
                             ) : (
-        <a href='http://localhost:3001/login'>
+        <a href='http://localhost:3001/api/login'>
           <button  className="btn-homepage btn-it" style={{color:'white',backgroundColor:'white'}} >
             <div className="button-container" >
                   <h1 style={{color:'black'}}>LOG-IN WITH</h1>
